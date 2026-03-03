@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Appointments | Dr. Kala Kalyani</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .contact-form {
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        textarea {
+            height: 150px;
+        }
+        .contact-info {
+            padding: 2rem;
+        }
+        .info-item {
+            margin-bottom: 1.5rem;
+        }
+        .info-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.3rem;
+        }
+    </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">KK</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero fade-in">
+            <h1>Contact & Appointments</h1>
+            <p>Start your journey toward mental well-being. Reach out to schedule a consultation.</p>
+        </section>
+
+        <section class="reveal">
+            <div class="grid grid-2">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p class="mb-2">I am available for both in-person and online consultations. Please feel free to reach out with any questions or to schedule your first session.</p>
+                    
+                    <div class="info-item">
+                        <h4>Location</h4>
+                        <p>Kochi, Kerala, India</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p>dr.kala@email.com</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h4>Phone</h4>
+                        <p>+91 98765 43210</p>
+                    </div>
+
+                    <div class="card" style="margin-top: 2rem; background-color: var(--accent-color);">
+                        <h3>Book Online</h3>
+                        <p>Prefer to choose your own time? Use our external scheduler.</p>
+                        <br>
+                        <a href="#" class="btn" style="width: 100%; text-align: center;">Go to Online Scheduler</a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2>Send a Message</h2>
+                    <br>
+                    <form action="mailto:dr.kala@email.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <div class="map-placeholder">
+                <div style="background-color: #ddd; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                    [Interactive Map Placeholder - Kerala, India]
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Dr. Kala Kalyani. All rights reserved. | Kerala, India</p>
+    </footer>
+
+<script src="assets/js/animations.js"></script></body>
+</html>
