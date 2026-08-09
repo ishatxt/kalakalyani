@@ -1,876 +1,514 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kalakalyani | Psychologist &amp; Counsellor, Thrissur</title>
-<meta name="description" content="Kalakalyani is a psychologist and counsellor in Thrissur, Kerala. Thirty years of gentle, private one-on-one care, classes and workshops that help people feel lighter." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
-<style>
-/* ---------- Tokens ---------- */
-:root{
-  --paper:#F4F6F1;
-  --paper-2:#EDF1E8;
-  --surface:#FFFFFF;
-  --ink:#26342C;
-  --muted:#5C6660;
-  --line:rgba(29,42,36,.14);
-  --line-soft:rgba(29,42,36,.08);
-  --accent:#2E5C41;
-  --accent-deep:#244A34;
-  --accent-tint:#E8EFE8;
-  --amber:#B2611F;
-  --white:#FFFFFF;
-  --r-card:20px;
-}
-/* ---------- Reset & Base ---------- */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-section{scroll-margin-top:96px}
-body{
-  background:var(--paper);color:var(--ink);
-  font-family:'Karla',system-ui,sans-serif;font-size:1.05rem;line-height:1.7;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{font:inherit;border:none;background:none;color:inherit;cursor:pointer}
-ul{list-style:none}
-::selection{background:var(--amber);color:#fff}
-.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.2rem,4vw,2rem)}
-section{padding:clamp(4.5rem,9vw,7.5rem) 0}
-h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:500;line-height:1.14;letter-spacing:-.01em;color:var(--ink)}
-h2{font-size:clamp(2rem,4.4vw,3.15rem)}
-h3{font-size:1.35rem}
-p{color:var(--muted);max-width:64ch}
-/* ---------- Helpers ---------- */
-.eyebrow{
-  display:inline-flex;align-items:center;gap:.65rem;
-  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:1.1rem;
-}
-.eyebrow::before{content:"";width:1.6rem;height:1px;background:var(--accent)}
-.section-head{max-width:680px;margin-bottom:clamp(2.2rem,5vw,3.5rem)}
-.section-head p{margin-top:.9rem;font-size:1.03rem}
-/* ---------- Buttons ---------- */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  padding:.95rem 1.7rem;border-radius:999px;
-  font-family:'Karla',sans-serif;font-size:.98rem;font-weight:600;
-  border:1px solid transparent;transition:background .25s ease,border-color .25s ease,transform .2s ease,color .25s ease;
-}
-.btn i{font-size:1.1em}
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:translateY(0)}
-.btn-primary{background:var(--accent);color:var(--white)}
-.btn-primary:hover{background:var(--accent-deep)}
-.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-/* ---------- Reveal ---------- */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
-.reveal.in{opacity:1;transform:none}
-/* ---------- Nav ---------- */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:50;padding:0 clamp(1rem,3vw,2rem);
-  background:rgba(244,246,241,.88);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line-soft);
-}
-.nav-in{max-width:1160px;margin:0 auto;height:68px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.brand{font-family:'Newsreader',serif;font-size:1.5rem;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
-.brand em{font-style:italic;color:var(--accent)}
-.nav ul{display:flex;align-items:center;gap:1.7rem}
-.nav ul a{font-size:.92rem;font-weight:500;color:var(--muted);transition:color .25s}
-.nav ul a:hover{color:var(--accent)}
-.nav-right{display:flex;align-items:center;gap:1.4rem}
-.burger{display:none;width:40px;height:40px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
-.burger span{display:block;width:20px;height:2px;background:var(--ink);transition:transform .25s,opacity .25s}
-.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile{
-  position:fixed;top:68px;left:0;right:0;z-index:49;
-  background:var(--paper);border-bottom:1px solid var(--line);
-  padding:1rem 24px 1.5rem;display:none;
-}
-.mobile.open{display:block}
-.mobile a{display:block;padding:.85rem 0;font-size:1.05rem;font-weight:500;color:var(--ink);border-bottom:1px solid var(--line-soft)}
-.mobile a:hover{color:var(--accent)}
-.mobile a:last-child{border-bottom:none}
-@media(max-width:820px){
-  .nav ul,.nav .btn{display:none}
-  .burger{display:flex}
-}
-/* ---------- Hero ---------- */
-.hero{min-height:100dvh;display:flex;align-items:center;padding:clamp(7rem,16vh,9rem) 0 2rem;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
-.hero h1{font-size:clamp(2.6rem,4.6vw,4.1rem);line-height:1.08;letter-spacing:-.015em;margin:.4rem 0 1.2rem}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:1.12rem;line-height:1.65;color:var(--muted)}
-.hero-cta{display:flex;gap:.9rem;margin-top:2rem;flex-wrap:wrap}
-.hero-note{margin-top:1.6rem;font-size:.86rem;color:var(--muted)}
-.hero-visual{position:relative;margin-top:2rem}
-.hero-frame{
-  border-radius:999px 999px var(--r-card) var(--r-card);
-  overflow:hidden;position:relative;aspect-ratio:4/5;
-  background:var(--accent-tint);border:1px solid var(--line-soft);
-}
-.hero-frame img{width:100%;height:100%;object-fit:cover}
-.far-left-arch{position:absolute;top:-1.6rem;right:-1.6rem;bottom:-2.2rem;left:auto;width:82%;border:1px solid var(--line);border-radius:999px 999px var(--r-card) var(--r-card);pointer-events:none}
-.hero-static{
-  position:absolute;left:-1rem;bottom:2.2rem;z-index:1;
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-card);
-  padding:1rem 1.3rem;box-shadow:0 18px 40px -24px rgba(29,52,36,.4);
-}
-.hero-static .num{font-family:'Newsreader',serif;font-size:1.9rem;font-weight:600;color:var(--accent);line-height:1}
-.hero-static .cap{font-size:.8rem;color:var(--muted);margin-top:.2rem;font-weight:500}
-/* ---------- About ---------- */
-.about-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2.5rem,6vw,4.5rem);align-items:start}
-.about-grid p{line-height:1.7;margin-top:1rem}
-.about-card{
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-card);
-  padding:2.2rem;
-}
-.about-card h3{font-size:1.5rem;margin-bottom:1.6rem}
-.stat-row{display:flex;align-items:baseline;gap:1rem;padding:1.25rem 0;border-top:1px solid var(--line-soft)}
-.stat-row:first-child{border-top:none;padding-top:0}
-.stat-num{font-family:'Newsreader',serif;font-size:2rem;font-weight:600;color:var(--accent);min-width:5.5rem}
-.stat-cap{font-size:.94rem;color:var(--ink);font-weight:500}
-/* ---------- Services ---------- */
-.section-alt{background:var(--paper-2)}
-.svc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.svc{padding:2.4rem 2rem;transition:background .3s ease}
-.svc:not(:last-child){border-right:1px solid var(--line)}
-.svc:hover{background:var(--surface)}
-.svc-icon{width:46px;height:46px;border-radius:14px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;margin-bottom:1.6rem;font-size:1.35rem}
-.svc h3{font-size:1.4rem;margin-bottom:.6rem}
-.svc p{font-size:.97rem;line-height:1.65}
-/* ---------- Work ---------- */
-.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem}
-.work-item{border-radius:var(--r-card);overflow:hidden;background:var(--surface);border:1px solid var(--line-soft);display:flex;flex-direction:column}
-.work-item img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .9s ease}
-.work-item:hover img{transform:scale(1.03)}
-.work-cap{padding:1rem 1.2rem}
-.work-cap h3{font-size:1.15rem}
-.work-cap p{font-size:.85rem;margin-top:.2rem}
-.item-a{grid-column:span 7}
-.item-b{grid-column:span 5}
-/* ---------- Focus ---------- */
-.focus-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:3.5rem}
-.focus-row{display:flex;gap:1.4rem;align-items:flex-start;padding:1.4rem 0;border-bottom:1px solid var(--line-soft)}
-.focus-row:last-child{border-bottom:none}
-.focus-num{font-family:'Newsreader',serif;font-size:1.2rem;color:var(--accent);font-weight:500;line-height:1.3}
-.focus-row p{font-size:.9rem;line-height:1.6;margin-top:.3rem;max-width:42ch}
-.focus-row h3{font-size:1.15rem}
-/* ---------- Testimonials ---------- */
-.tcarousel{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(2rem,5vw,3.5rem) 0}
-.ttrack{display:flex;overflow:hidden}
-.tslide{min-width:100%;opacity:0;visibility:hidden;transition:opacity .45s ease}
-.tslide.active{opacity:1;visibility:visible}
-.tslide .quote{font-family:'Newsreader',serif;font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:400;line-height:1.5;color:var(--ink)}
-.tslide .quote::before{content:"\201C";color:var(--accent);font-size:.9em;margin-right:.15em}
-.tslide .who{margin-top:1.6rem;font-size:.9rem;font-weight:600;color:var(--ink)}
-.tslide .role-t{font-size:.82rem;color:var(--muted);margin-top:.15rem}
-.tdots{display:flex;gap:8px;margin-top:1.8rem}
-.tdots button{width:8px;height:8px;border-radius:999px;background:var(--line);transition:width .3s,background .3s}
-.tdots button.active{width:26px;background:var(--accent)}
-/* ---------- Approach ---------- */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.step{padding:2.4rem 1.8rem 2.4rem 0;border-right:1px solid var(--line)}
-.step:last-child{border-right:none}
-.step-num{font-family:'Newsreader',serif;font-size:1.05rem;color:var(--accent);margin-bottom:1.4rem}
-.step h3{font-size:1.35rem;margin-bottom:.7rem}
-.step p{font-size:.9rem;line-height:1.6}
-/* ---------- Pricing ---------- */
-.price-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.4rem;align-items:stretch}
-.price-card{
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-card);
-  padding:2.4rem;display:flex;flex-direction:column;position:relative;
-}
-.price-card.featured{border-color:var(--accent);box-shadow:0 24px 60px -30px rgba(46,92,65,.35)}
-.price-badge{
-  position:absolute;top:-12px;left:2.4rem;background:var(--accent);color:#fff;
-  font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  padding:.4rem .9rem;border-radius:999px;
-}
-.price-tier{font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.price-amount{font-family:'Newsreader',serif;font-size:3rem;font-weight:600;color:var(--ink);margin:.9rem 0 -.1rem}
-.price-amount sup{font-size:1.1rem;font-weight:500;color:var(--muted);margin-right:.15rem}
-.price-note{font-size:.84rem;color:var(--muted);margin-bottom:1.8rem}
-.price-features{border-top:1px solid var(--line-soft);padding-top:1.2rem;display:flex;flex-direction:column;gap:.8rem;flex:1;margin-bottom:2rem}
-.price-features li{display:flex;gap:.6rem;align-items:flex-start;font-size:.92rem;color:var(--muted)}
-.price-features i{color:var(--accent);margin-top:.2rem;font-size:1rem}
-/* ---------- Why ---------- */
-.diff-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.diff{padding:2.4rem 1.8rem}
-.diff:not(:last-child){border-right:1px solid var(--line)}
-.diff .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;font-size:1.25rem;margin-bottom:1.4rem}
-.diff h3{font-size:1.25rem;margin-bottom:.6rem}
-.diff p{font-size:.9rem;line-height:1.65}
-/* ---------- Estimator ---------- */
-.estimate-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4rem);align-items:start}
-.est-group{margin-bottom:2.2rem}
-.est-label{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
-.est-opts{display:flex;flex-wrap:wrap;gap:.6rem}
-.est-opt{
-  padding:.6rem 1.05rem;border:1px solid var(--line);border-radius:999px;
-  font-size:.9rem;color:var(--muted);font-weight:500;cursor:pointer;user-select:none;transition:all .2s ease;
-}
-.est-opt:hover{border-color:var(--accent);color:var(--accent)}
-.est-opt.selected{background:var(--accent);border-color:var(--accent);color:#fff}
-.estimate-result{
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-card);
-  padding:2.4rem;position:sticky;top:96px;
-}
-.est-result-label{font-family:'Newsreader',serif;font-size:1.05rem;color:var(--muted)}
-.est-price-range{font-family:'Newsreader',serif;font-size:2.6rem;font-weight:600;color:var(--accent);margin:.4rem 0 .9rem}
-.est-timeline{font-size:.92rem;color:var(--muted);padding-bottom:1.4rem;border-bottom:1px solid var(--line-soft);margin-bottom:1.4rem}
-.est-timeline strong{color:var(--ink)}
-.est-includes{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
-.est-includes li{font-size:.92rem;color:var(--muted);display:flex;gap:.6rem;align-items:flex-start}
-.est-includes i{color:var(--accent);font-size:.95rem;margin-top:.15rem}
-.est-disclaimer{font-size:.78rem;color:var(--muted);margin-top:1.2rem;line-height:1.6}
-/* ---------- FAQ ---------- */
-.faq-wrap{max-width:760px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--line)}
-.faq-item:first-child{border-top:1px solid var(--line)}
-.faq-q{
-  width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:1.5rem 0;font-family:'Karla',sans-serif;font-size:1.03rem;font-weight:600;color:var(--ink);
-}
-.faq-icon{font-size:1.15rem;color:var(--accent);transition:transform .3s ease;flex-shrink:0}
-.faq-item.open .faq-icon{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-a p{padding:0 0 1.5rem;font-size:.95rem;line-height:1.7}
-/* ---------- CTA ---------- */
-.cta-block{
-  background:var(--accent);border-radius:calc(var(--r-card) + 6px);
-  padding:clamp(2.8rem,6vw,4.5rem);position:relative;overflow:hidden;
-}
-.cta-block::before{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.06)}
-.cta-block::after{content:"";position:absolute;left:-60px;bottom:-110px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.05)}
-.cta-block h2{color:#fff;margin-bottom:.9rem}
-.cta-block p{color:rgba(255,255,255,.82);margin-bottom:2rem}
-.avail-tag{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:rgba(255,255,255,.9);background:rgba(255,255,255,.12);
-  padding:.45rem 1rem;border-radius:999px;margin-bottom:1.6rem;
-}
-.avail-dot{width:7px;height:7px;border-radius:50%;background:#fff}
-.cta-btns{display:flex;gap:.9rem;flex-wrap:wrap;position:relative;z-index:1}
-.cta-btns .btn-primary{background:#fff;color:var(--accent-deep)}
-.cta-btns .btn-primary:hover{background:var(--accent-tint)}
-.cta-btns .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
-.cta-btns .btn-ghost:hover{border-color:#fff;color:#fff}
-.cta-note{margin-top:1.6rem;font-size:.8rem;color:rgba(255,255,255,.7)}
-/* ---------- Contact ---------- */
-.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
-.info{display:flex;flex-direction:column;gap:1.4rem}
-.info .row{display:flex;gap:1rem;align-items:center;font-size:1rem;color:var(--ink);font-weight:500}
-.info .row i{color:var(--accent);font-size:1.4rem;width:30px;text-align:center}
-.info .row small{display:block;font-size:.8rem;color:var(--muted);font-weight:400}
-.socials{display:flex;gap:.7rem;margin-top:1rem}
-.socials a{
-  width:44px;height:44px;border-radius:999px;border:1px solid var(--line);
-  display:grid;place-items:center;color:var(--muted);font-size:1.2rem;transition:all .25s ease;
-}
-.socials a:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-2px)}
-form{
-  background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--r-card);
-  padding:2.4rem;display:grid;gap:1.2rem;
-}
-.field{display:flex;flex-direction:column;gap:.5rem}
-.field label{font-size:.82rem;font-weight:700;color:var(--ink);letter-spacing:.03em}
-.field input,.field textarea{
-  width:100%;padding:.9rem 1rem;border:1px solid var(--line);border-radius:13px;
-  background:var(--paper);color:var(--ink);font:inherit;font-size:.98rem;transition:border-color .2s,box-shadow .2s;
-}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(46,92,65,.12)}
-.field textarea{min-height:140px;resize:vertical}
-/* ---------- Footer ---------- */
-footer{border-top:1px solid var(--line);padding:3rem 0 4rem;background:var(--paper-2)}
-.made-line{border-top:1px solid var(--line-soft);margin-top:2.2rem;padding-top:1.4rem;text-align:center;font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
-.made-line a{color:var(--accent);font-weight:600}
-.made-line a:hover{text-decoration:underline;text-underline-offset:3px}
-.foot{max-width:1160px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center;font-size:.85rem;color:var(--muted)}
-.foot strong{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--ink);font-weight:600}
-.foot strong em{font-style:italic;color:var(--accent)}
-.foot ul{display:flex;gap:1.6rem}
-.foot ul a:hover{color:var(--accent)}
-/* ---------- Responsive ---------- */
-@media(max-width:960px){
-  .hero{min-height:auto;padding:7.5rem 0 4rem}
-  .hero-grid{grid-template-columns:1fr;gap:3rem}
-  .hero-visual{max-width:440px;margin:0 auto}
-  .svc-grid{grid-template-columns:1fr}
-  .svc:not(:last-child){border-right:none;border-bottom:1px solid var(--line)}
-  .steps{grid-template-columns:1fr 1fr}
-  .step:nth-child(2){border-right:none}
-  .step{border-bottom:1px solid var(--line)}
-  .step:nth-child(3),.step:nth-child(4){border-bottom:none}
-  .price-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
-  .estimate-wrap{grid-template-columns:1fr}
-  .estimate-result{position:static}
-}
-@media(max-width:760px){
-  .about-grid{grid-template-columns:1fr}
-  .focus-grid{grid-template-columns:1fr}
-  .diff-grid{grid-template-columns:1fr}
-  .diff:not(:last-child){border-right:none;border-bottom:1px solid var(--line)}
-  .contact-grid{grid-template-columns:1fr}
-  .item-a,.item-b{grid-column:span 12}
-  .hero-static{position:static;margin-top:1rem;display:inline-flex}
-}
-/* ---------- Reduced Motion ---------- */
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  .reveal{opacity:1;transform:none;transition:none}
-  *,*::before,*::after{transition-duration:0s!important;animation-duration:0s!important}
-}
-</style>
-</head>
-<body>
-<nav class="nav">
-  <div class="nav-in">
-    <a href="#home" class="brand">Kala<em>kalyani</em></a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Classes</a></li>
-      <li><a href="#process">Approach</a></li>
-      <li><a href="#pricing">Sessions</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
-    <div class="nav-right">
-      <a href="#contact" class="btn btn-primary">Book a Session</a>
-      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-<div class="mobile" id="mobile">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#work">Classes &amp; Workshops</a>
-  <a href="#process">Approach</a>
-  <a href="#pricing">Fees</a>
-  <a href="#testimonials">What People Say</a>
-  <a href="#faq">FAQ</a>
-  <a href="#contact">Book a Session</a>
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalakalyani | Psychologist &amp; Counsellor, Thrissur</title>
+    <meta
+      name="description"
+      content="Kalakalyani is a psychologist and counsellor in Thrissur, Kerala. Thirty years of gentle, private one-on-one care, classes and workshops that help people feel lighter."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- ================================= PART 2 : BODY ================================= -->
+    <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="reveal">
-        <div class="eyebrow">Psychologist &amp; Counsellor, Thrissur</div>
-        <h1>A calm place for whatever is <em>heavy on your mind.</em></h1>
-        <p class="hero-sub">For over thirty years I have sat quietly with people who feel heavy, confused, or stuck. You are heard fully, never judged, and you leave a little lighter.</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Book a Session <i class="ph ph-arrow-right"></i></a>
-          <a href="#services" class="btn btn-ghost">See How I Help</a>
-        </div>
-        <p class="hero-note"><i class="ph ph-whatsapp-logo"></i> Prefer to message first? <a href="https://wa.me/919446138004" style="color:var(--accent);font-weight:600">WhatsApp me</a>, there is no pressure.</p>
+    <header class="masthead">
+      <div class="mast-inner">
+        <a class="brand" href="#home" aria-label="Kalakalyani home">
+          <span class="brand-mark">K</span>
+          <span class="brand-name">Kala<em>kalyani</em></span>
+        </a>
+        <nav class="mast-nav" aria-label="Pages">
+          <a href="#about" style="text-transform:uppercase">About</a>
+          <a href="#services" style="text-transform:uppercase">Services</a>
+          <a href="#work" style="text-transform:uppercase">Classes</a>
+          <a href="#process" style="text-transform:uppercase">Approach</a>
+          <a href="#pricing" style="text-transform:uppercase">Sessions</a>
+          <a href="#faq" style="text-transform:uppercase">FAQ</a>
+        </nav>
+        <span class="mast-meta">psych &middot; thrissur</span>
+        <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
-      <div class="hero-visual reveal">
-        <div class="far-left-arch"></div>
-        <div class="hero-frame">
-          <img src="4.jpg" alt="A counselling conversation with Kalakalyani" />
-        </div>
-        <div class="hero-static">
-          <div class="num">30+</div>
-          <div class="cap">years of gentle practice</div>
-        </div>
-      </div>
+    </header>
+    <div class="mobile" id="mobile">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Classes &amp; Workshops</a>
+      <a href="#process">Approach</a>
+      <a href="#pricing">Fees</a>
+      <a href="#testimonials">What People Say</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" style="color:var(--brass);font-weight:700">Book a Session</a>
     </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="reveal">
-        <h2>Caring for the <em style="font-style:italic;color:var(--accent)">heart and the mind.</em></h2>
-        <p>I'm Kalakalyani, a psychologist living in Thrissur, Kerala, with over thirty years of gentle practice. People come to me when they feel heavy, confused, or stuck, and leave a little lighter.</p>
-        <p>Through one-on-one guidance and the classes and workshops I have run across Kerala, I have walked alongside students, families, and elders. My way is simple: sit quietly, listen kindly, and help each person find their own strength again.</p>
-        <a href="#contact" class="btn btn-ghost" style="margin-top:1.8rem">Book a Session <i class="ph ph-arrow-right"></i></a>
-      </div>
-      <div class="about-card reveal">
-        <h3>A few things about me</h3>
-        <div class="stats">
-          <div class="stat-row"><div class="stat-num" data-count="30">0</div><div class="stat-cap">Years of practice</div></div>
-          <div class="stat-row"><div class="stat-num" data-count="10000">0</div><div class="stat-cap">Lives touched</div></div>
-          <div class="stat-row"><div class="stat-num" data-count="500">0</div><div class="stat-cap">Classes and workshops</div></div>
+    <main id="main" class="wrap">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="home">
+        <div class="hero-overline"><span>psychologist &amp; counsellor</span></div>
+        <h1>A calm place for whatever is<br />heavy on your <em>mind.</em></h1>
+        <p class="hero-lede">
+          For over thirty years I have sat quietly with people who feel heavy,
+          confused, or stuck. Here you are heard fully, never judged, and you
+          leave a little lighter.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-prime" href="#contact">Book a Session</a>
+          <a class="btn btn-ghost" href="#services">See How I Help</a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- SERVICES -->
-<section id="services" class="section-alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Services</div>
-      <h2>How I can help you</h2>
-      <p>A warm, private space to talk, and honest guidance for the road ahead.</p>
-    </div>
-    <div class="svc-grid reveal">
-      <div class="svc">
-        <div class="svc-icon"><i class="ph ph-heart"></i></div>
-        <h3>Personal Counselling</h3>
-        <p>One-on-one sessions for stress, sadness, anxiety, anger, and self-doubt. A safe, private space where you are truly heard.</p>
-      </div>
-      <div class="svc">
-        <div class="svc-icon"><i class="ph ph-compass"></i></div>
-        <h3>Career &amp; Study Guidance</h3>
-        <p>Helping students and young adults choose a path that fits their talent and their heart. Patient, guided, and free of pressure.</p>
-      </div>
-      <div class="svc">
-        <div class="svc-icon"><i class="ph ph-users"></i></div>
-        <h3>Classes &amp; Workshops</h3>
-        <p>Programmes across Kerala on inner peace, family, confidence, and calm for students, teachers, parents, and elders.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK -->
-<section id="work">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>What I teach and offer</h2>
-      <p>Practices and programmes in gentle, practical form, for people of every age.</p>
-    </div>
-    <div class="work-grid reveal">
-      <div class="work-item item-a">
-        <img src="2.jpg" alt="Stress and peace of mind class" />
-        <div class="work-cap">
-          <h3>Stress &amp; Peace of Mind</h3>
-          <p>Simple, practical ways to quiet a busy mind and breathe through the pressure of the day.</p>
+      <section class="demo" aria-label="Give a session a look">
+        <div class="demo-frame">
+          <img src="image/4.jpg" class="photo" alt="A counselling conversation" />
         </div>
-      </div>
-      <div class="work-item item-b">
-        <img src="1.jpg" alt="Confidence workshop" />
-        <div class="work-cap">
-          <h3>Confidence &amp; Self-Belief</h3>
-          <p>Helping people stand firm, speak their truth, and value who they really are.</p>
+        <div>
+          <div class="lightbox">
+            <div class="lightbox-head">
+              <span class="lid"></span>
+              <span>Intake board</span>
+              <span class="tag">open</span>
+            </div>
+            <div class="lightbox-body">
+              <div class="touch-row">
+                <span class="k">call</span>
+                <span class="v">+91 94461 38004</span>
+              </div>
+              <div class="touch-row">
+                <span class="k">write</span>
+                <span class="v"><a href="mailto:kalakalyanimayil@gmail.com">kalakalyanimayil@gmail.com</a></span>
+              </div>
+              <div class="touch-row">
+                <span class="k">message</span>
+                <span class="v"><a href="https://wa.me/919446138004">WhatsApp, tap to open</a></span>
+              </div>
+              <div class="touch-row">
+                <span class="k">on site</span>
+                <span class="v">Thrissur, Kerala</span>
+              </div>
+              <div class="lightbox-cta">
+                <a class="btn btn-ghost btn-full" href="#contact">Start a Session</a>
+              </div>
+            </div>
+          </div>
+          <p class="demoline">A session is around 45 to 60 minutes. You may start with a plain phone call, with no commitment.</p>
         </div>
-      </div>
-      <div class="work-item item-b">
-        <img src="3.jpg" alt="Career guidance session" />
-        <div class="work-cap">
-          <h3>Career &amp; Life Choices</h3>
-          <p>Guiding students and families to choose a future by fit and feeling, not by fear.</p>
-        </div>
-      </div>
-      <div class="work-item item-a">
-        <img src="4.jpg" alt="Family wellbeing talk" />
-        <div class="work-cap">
-          <h3>Teens &amp; Family Wellbeing</h3>
-          <p>Gentle conversations on growing up, study pressure, and the changes of life at home.</p>
-        </div>
-      </div>
-      <div class="work-item item-b">
-        <img src="2.jpg" alt="Meditation and breathing practice" />
-        <div class="work-cap">
-          <h3>Breathing &amp; Calm</h3>
-          <p>Simple breathing practices taught slowly, so calm becomes something you can carry with you.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- PROCESS -->
-<section id="process" class="section-alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>How a session with me goes</h2>
-      <p>From your first message to the day you feel lighter. No medical language, no hurry.</p>
-    </div>
-    <div class="steps reveal">
-      <div class="step">
-        <div class="step-num">01</div>
-        <h3>Listen</h3>
-        <p>We meet and talk, unhurried and private, at your pace. You say as much or as little as you wish. My first job is simply to hear you fully.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <h3>Understand</h3>
-        <p>Together we gently untangle what lies underneath: the pressures, the patterns, the worries behind how you feel.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <h3>Support</h3>
-        <p>Through steady sessions, breathing, reflection, and small doable steps, we move forward one moment at a time.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <h3>Stay</h3>
-        <p>You leave with tools for everyday life, and I remain by your side for as long as you need me.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>What people say</h2>
-    </div>
-    <div class="tcarousel reveal">
-      <div class="ttrack" id="ttrack">
-        <div class="tslide active"><p class="quote">Kalyani ma'am sat with me for over an hour and never once made me feel like a burden. For the first time in months, I could sleep without my chest aching.</p><div class="who">Devika</div><div class="role-t">College student, Thrissur</div></div>
-        <div class="tslide"><p class="quote">We brought our son to her class on study pressure. The way she spoke to the children was so gentle, he listened like a different boy.</p><div class="who">Suresh &amp; Latha</div><div class="role-t">Parents, Irinjalakuda</div></div>
-        <div class="tslide"><p class="quote">I have attended three of her workshops, and every time I leave a little more patient, and a little kinder to myself.</p><div class="who">Anjali P.</div><div class="role-t">School teacher</div></div>
-      </div>
-      <div class="tdots" id="tdots"></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="section-alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Sessions &amp; Fees</div>
-      <h2>Simple, honest fees</h2>
-      <p>No hidden charges, no confusion. Choose how you would like to begin, or message me and we will find the kindest fit.</p>
-    </div>
-    <div class="price-grid">
-      <div class="price-card reveal">
-        <div class="price-tier">One-on-One Session</div>
-        <div class="price-amount"><sup>Rs</sup>600</div>
-        <div class="price-note">Per session, 45 to 60 minutes</div>
-        <ul class="price-features">
-          <li><i class="ph ph-check"></i>Calm, completely private conversation</li>
-          <li><i class="ph ph-check"></i>Kind, unhurried listening</li>
-          <li><i class="ph ph-check"></i>A pace that feels comfortable to you</li>
-          <li><i class="ph ph-check"></i>Simple, doable steps to take home</li>
-          <li><i class="ph ph-check"></i>Suitable for stress, sadness and worry</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost">Start Here <i class="ph ph-arrow-right"></i></a>
-      </div>
-      <div class="price-card featured reveal">
-        <div class="price-badge">Most Chosen</div>
-        <div class="price-tier">Guided Programme</div>
-        <div class="price-amount"><sup>Rs</sup>2,500</div>
-        <div class="price-note">Four sessions, one full month</div>
-        <ul class="price-features">
-          <li><i class="ph ph-check"></i>Four private sessions, one each week</li>
-          <li><i class="ph ph-check"></i>A plan shaped around your goal</li>
-          <li><i class="ph ph-check"></i>A phone check-in between sessions</li>
-          <li><i class="ph ph-check"></i>Breathing and grounding practice</li>
-          <li><i class="ph ph-check"></i>Follow-up at the end of the month</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary">Book a Session <i class="ph ph-arrow-right"></i></a>
-      </div>
-      <div class="price-card reveal">
-        <div class="price-tier">Classes &amp; Workshops</div>
-        <div class="price-amount"><sup>Rs</sup>6,000</div>
-        <div class="price-note">Per course, six weeks, groups welcome</div>
-        <ul class="price-features">
-          <li><i class="ph ph-check"></i>Weekly classes, weekend friendly</li>
-          <li><i class="ph ph-check"></i>Stress, anger, and peace of mind programs</li>
-          <li><i class="ph ph-check"></i>Career guidance for students and parents</li>
-          <li><i class="ph ph-check"></i>Family and study pressure workshops</li>
-          <li><i class="ph ph-check"></i>Notes and simple checklists to keep</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost">Enquire <i class="ph ph-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section id="why">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>The quiet difference</h2>
-      <p>Personal counselling is at its best when it is gentle, private, and honest about money. Here is what a session with me holds.</p>
-    </div>
-    <div class="diff-grid reveal">
-      <div class="diff">
-        <div class="ic"><i class="ph ph-clock"></i></div>
-        <h3>Ample time</h3>
-        <p>An unhurried hour with your whole session kept for you. No rushing, no queues, no clock-watching.</p>
-      </div>
-      <div class="diff">
-        <div class="ic"><i class="ph ph-lock-simple"></i></div>
-        <h3>Private, always</h3>
-        <p>Everything stays between us. That trust is the foundation of the work, and I hold it carefully.</p>
-      </div>
-      <div class="diff">
-        <div class="ic"><i class="ph ph-arrow-u-up-left"></i></div>
-        <h3>Follow-up, always</h3>
-        <p>A check after your session, and a door that stays open. Healing is not a transaction, it is a relationship.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ESTIMATE -->
-<section id="estimate" class="section-alt">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Which step feels right for you?</h2>
-      <p>Pick what is on your mind and see a rough, honest starting point. No email, no pressure.</p>
-    </div>
-    <div class="estimate-wrap">
-      <div class="reveal">
-        <div class="est-group">
-          <div class="est-label">I am looking for</div>
-          <div class="est-opts" data-group="type">
-            <div class="est-opt selected" data-price="600" data-time="1">A private session</div>
-            <div class="est-opt" data-price="400" data-time="2">Guidance for a student</div>
-            <div class="est-opt" data-price="2500" data-time="4">A month-long programme</div>
-            <div class="est-opt" data-price="1200" data-time="2">Family or couple help</div>
-            <div class="est-opt" data-price="6000" data-time="6">A class or workshop</div>
+      <!-- ================= ABOUT ================= -->
+      <section class="section" id="about">
+        <p class="eyebrow">the notebook</p>
+        <h2 class="page-title">Caring for both the <em>heart</em> and the <em>mind.</em></h2>
+        <p class="page-lede">
+          I'm Kalakalyani, a psychologist living in Thrissur, Kerala, with over
+          thirty years of quiet practice. People come to me when they feel
+          heavy, confused, or stuck, and they leave a little lighter.
+        </p>
+        <p class="page-lede lead-tight">
+          Through one-on-one guidance and the classes and workshops I have run
+          across Kerala, I have walked alongside students, families, and
+          elders. My way is simple: sit quietly, listen kindly, and help each
+          person find their own strength again.
+        </p>
+        <div class="spectrum-row">
+          <div class="spec-row reveal">
+            <span class="spec-name">Years of practice</span>
+            <span class="spec-val" data-count="30">0</span>
+          </div>
+          <div class="spec-row reveal">
+            <span class="spec-name">Lives touched</span>
+            <span class="spec-val" data-count="10000">0</span>
+          </div>
+          <div class="spec-row reveal">
+            <span class="spec-name">Classes and workshops</span>
+            <span class="spec-val" data-count="500">0</span>
           </div>
         </div>
-        <div class="est-group">
-          <div class="est-label">Who is it for</div>
-          <div class="est-opts" data-group="pages">
-            <div class="est-opt selected" data-price="0" data-time="0">Myself</div>
-            <div class="est-opt" data-price="0" data-time="1">A teen or student</div>
-            <div class="est-opt" data-price="800" data-time="2">A family member</div>
-            <div class="est-opt" data-price="1200" data-time="3">A group or classroom</div>
+      </section>
+
+      <!-- ================= SERVICES ================= -->
+      <section class="section" id="services">
+        <p class="eyebrow">what I offer</p>
+        <h2 class="page-title">Ways we can <em>sit together.</em></h2>
+        <div class="toolrow">
+          <a class="toolcard reveal" href="#contact">
+            <div class="glyph">C</div>
+            <div class="code">route / one-on-one</div>
+            <h3>Personal Counselling</h3>
+            <p>
+              Sessions for stress, sadness, anxiety, anger, and self-doubt. A
+              quiet, private space where you are truly heard.
+            </p>
+            <span class="enter">book a private sit</span>
+          </a>
+          <a class="toolcard reveal" href="#contact">
+            <div class="glyph">S</div>
+            <div class="code">route / student &amp; family</div>
+            <h3>Career &amp; Study Guidance</h3>
+            <p>
+              Helping students and young adults choose a path that fits their
+              talent and their heart, without pressure.
+            </p>
+            <span class="enter">guide a young mind</span>
+          </a>
+          <a class="toolcard reveal" href="#contact">
+            <div class="glyph">W</div>
+            <div class="code">route / group &amp; school</div>
+            <h3>Classes &amp; Workshops</h3>
+            <p>
+              Programmes across Kerala on inner peace, family, confidence, and
+              calm, for people of every age.
+            </p>
+            <span class="enter">run the program</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= CLASSES ================= -->
+      <section class="section" id="work">
+        <p class="eyebrow">open classes</p>
+        <h2 class="page-title">What I teach and <em>offer.</em></h2>
+        <div class="work-grid">
+          <div class="work-item ga reveal">
+            <img src="image/2.jpg" alt="Stress and peace of mind class" />
+            <div class="work-cap">
+              <div class="code">class &middot; distress</div>
+              <h3>Stress &amp; Peace of Mind</h3>
+              <p>Simple, practical ways to quiet a busy mind and breathe through the pressure of the day.</p>
+            </div>
+          </div>
+          <div class="work-item gb reveal">
+            <img src="image/1.jpg" alt="Confidence workshop" />
+            <div class="work-cap">
+              <div class="code">workshop &middot; poise</div>
+              <h3>Confidence &amp; Self-Belief</h3>
+              <p>Helping people stand firm, speak their truth, and value who they really are.</p>
+            </div>
+          </div>
+          <div class="work-item gb reveal">
+            <img src="image/3.jpg" alt="Career guidance session" />
+            <div class="work-cap">
+              <div class="code">guidance &middot; direction</div>
+              <h3>Career &amp; Life Choices</h3>
+              <p>Guiding students and families to choose a future by fit and feeling, not by fear.</p>
+            </div>
+          </div>
+          <div class="work-item gb reveal">
+            <img src="image/4.jpg" alt="Family wellbeing talk" />
+            <div class="work-cap">
+              <div class="code">talk &middot; family</div>
+              <h3>Teens &amp; Family Wellbeing</h3>
+              <p>Gentle conversations on growing up, study pressure, and the changes of life at home.</p>
+            </div>
+          </div>
+          <div class="work-item gb reveal">
+            <img src="image/2.jpg" alt="Breathing and calm practice" />
+            <div class="work-cap">
+              <div class="code">practice &middot; calm</div>
+              <h3>Breathing &amp; Calm</h3>
+              <p>Simple breathing practices taught slowly, so calm becomes something you can carry with you.</p>
+            </div>
           </div>
         </div>
-        <div class="est-group">
-          <div class="est-label">How we meet</div>
-          <div class="est-opts" data-group="design">
-            <div class="est-opt selected" data-price="0" data-time="0">In person, Thrissur</div>
-            <div class="est-opt" data-price="0" data-time="1">Over the phone</div>
-            <div class="est-opt" data-price="400" data-time="1">Home or school visit</div>
+      </section>
+
+      <!-- ================= PROCESS ================= -->
+      <section class="section" id="process">
+        <p class="eyebrow">the approach</p>
+        <h2 class="page-title">How a session <em>goes.</em></h2>
+        <p class="page-lede">From your first message to the day you feel lighter. No medical language, no hurry.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-label">sit 01 &middot; listen</div>
+            <h3>Listen</h3>
+            <p>We meet and talk, unhurried and private. My first job is simply to hear you fully.</p>
+          </div>
+          <div class="step">
+            <div class="step-label">sit 02 &middot; understand</div>
+            <h3>Understand</h3>
+            <p>Together we untangle what lies underneath: the pressures, the patterns, the worries.</p>
+          </div>
+          <div class="step">
+            <div class="step-label">sit 03 &middot; support</div>
+            <h3>Support</h3>
+            <p>Through steady sessions, breathing, and small doable steps, we move forward.</p>
+          </div>
+          <div class="step">
+            <div class="step-label">sit 04 &middot; stay</div>
+            <h3>Stay</h3>
+            <p>You leave with tools for everyday life, and I remain by your side as long as you need me.</p>
           </div>
         </div>
-        <div class="est-group">
-          <div class="est-label">Extras</div>
-          <div class="est-opts" data-group="extras">
-            <div class="est-opt selected" data-price="0" data-time="0">None</div>
-            <div class="est-opt" data-price="800" data-time="2">Session notes to keep</div>
-            <div class="est-opt" data-price="1000" data-time="1">A talk for a school or office</div>
-            <div class="est-opt" data-price="0" data-time="1">I would like it this week</div>
-            <div class="est-opt" data-price="600" data-time="3">Monthly follow-ups</div>
+      </section>
+
+      <!-- ================= TESTIMONIALS ================= -->
+      <section class="section" id="testimonials">
+        <p class="eyebrow">the visitors' book</p>
+        <h2 class="page-title">What people <em>say.</em></h2>
+        <div class="quote-grid">
+          <div class="quote-card reveal">
+            <p class="q">Kalyani ma'am sat with me for over an hour and never once made me feel like a burden. For the first time in months, I could sleep without my chest aching.</p>
+            <div class="who">Devika</div>
+            <div class="role-t">College student, Thrissur</div>
+          </div>
+          <div class="quote-card reveal">
+            <p class="q">We brought our son to her class on study pressure. The way she spoke to the children was so gentle, he listened like a different boy.</p>
+            <div class="who">Suresh &amp; Latha</div>
+            <div class="role-t">Parents, Irinjalakuda</div>
+          </div>
+          <div class="quote-card reveal">
+            <p class="q">I have attended three of her workshops, and every time I leave a little more patient, and a little kinder to myself.</p>
+            <div class="who">Anjali P.</div>
+            <div class="role-t">School teacher</div>
           </div>
         </div>
-      </div>
-      <div class="estimate-result reveal">
-        <div class="est-result-label">Rough idea of fees</div>
-        <div class="est-price-range" id="est-price">Rs 600</div>
-        <div class="est-timeline">Time commitment: <strong id="est-time">about 1 session</strong></div>
-        <ul class="est-includes" id="est-includes">
-          <li><i class="ph ph-check"></i>A warm, private conversation</li>
-          <li><i class="ph ph-check"></i>Kind, unhurried listening</li>
-          <li><i class="ph ph-check"></i>Simple steps to take home</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="width:100%">Talk to Me First <i class="ph ph-arrow-right"></i></a>
-        <p class="est-disclaimer">This is only a rough idea. The real beginning is always discussed kindly, with what you can truly afford in mind.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Questions people often ask</h2>
-      <p>Answered honestly, so reaching out feels a little less frightening.</p>
-    </div>
-    <div class="faq-wrap reveal">
-      <div class="faq-item">
-        <button class="faq-q">Do I have to be seriously ill to see a psychologist?<span class="faq-icon"><i class="ph ph-plus"></i></span></button>
-        <div class="faq-a"><p>Not at all. Many people come not because of illness, but because they feel tired, stuck, anxious, or simply unheard. You do not need a label to deserve a calm conversation.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Will my things stay completely private?<span class="faq-icon"><i class="ph ph-plus"></i></span></button>
-        <div class="faq-a"><p>Yes. Whatever you share stays between us, always. That trust is the foundation of my work, and I hold it carefully.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">How long does one session last?<span class="faq-icon"><i class="ph ph-plus"></i></span></button>
-        <div class="faq-a"><p>A private session is around 45 to 60 minutes, and I never hurry it. You decide how much you wish to share. Some people feel lighter after one sitting, others choose to come a few times.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">My family is afraid of the word psychologist. What do I tell them?<span class="faq-icon"><i class="ph ph-plus"></i></span></button>
-        <div class="faq-a"><p>Tell them counselling is like talking to a wise, trusted elder, for a clear mind and a peaceful heart. You may also bring one family member along for your first visit if it helps them feel at ease.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Do you help children and students too?<span class="faq-icon"><i class="ph ph-plus"></i></span></button>
-        <div class="faq-a"><p>Yes, much of my work is with teens and young adults. Study pressure, exam fear, career choices, growing up. I speak to them as I would my own children, softly and without criticism.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What if I cannot afford the fee?<span class="faq-icon"><i class="ph ph-plus"></i></span></button>
-        <div class="faq-a"><p>Please do not hesitate because of money. I keep my fees modest, and for students and those truly in need I always make room for a free session.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">I am nervous about my first visit. What happens?<span class="faq-icon"><i class="ph ph-plus"></i></span></button>
-        <div class="faq-a"><p>You may start with a phone call, with no commitment. When we meet, I make tea or coffee if you like, we sit comfortably, and we simply talk. There is no exam and no judgement.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- ================= PRICING ================= -->
+      <section class="section" id="pricing">
+        <p class="eyebrow">sessions &amp; fees</p>
+        <h2 class="page-title">Simple, honest <em>fees.</em></h2>
+        <p class="page-lede">No hidden charges, no confusion. Choose how you would like to begin, or message me and we will find the kindest fit.</p>
+        <div class="price-grid">
+          <div class="price-card reveal">
+            <div class="price-tier">One-on-One Session</div>
+            <div class="price-amount"><sup>Rs</sup>600</div>
+            <div class="price-note">Per session, 45 to 60 minutes</div>
+            <ul class="price-features">
+              <li><i>&#10003;</i> Calm, completely private conversation</li>
+              <li><i>&#10003;</i> Kind, unhurried listening</li>
+              <li><i>&#10003;</i> A pace that feels comfortable to you</li>
+              <li><i>&#10003;</i> Simple, doable steps to take home</li>
+              <li><i>&#10003;</i> Suitable for stress, sadness and worry</li>
+            </ul>
+            <a class="btn btn-ghost btn-full" href="#contact">Start Here</a>
+          </div>
+          <div class="price-card featured reveal">
+            <div class="price-badge">Most Chosen</div>
+            <div class="price-tier">Guided Programme</div>
+            <div class="price-amount"><sup>Rs</sup>2,500</div>
+            <div class="price-note">Four sessions, one full month</div>
+            <ul class="price-features">
+              <li><i>&#10003;</i> Four private sessions, one each week</li>
+              <li><i>&#10003;</i> A plan shaped around your goal</li>
+              <li><i>&#10003;</i> A phone check-in between sessions</li>
+              <li><i>&#10003;</i> Breathing and grounding practice</li>
+              <li><i>&#10003;</i> Follow-up at the end of the month</li>
+            </ul>
+            <a class="btn btn-prime btn-full" href="#contact">Book a Session</a>
+          </div>
+          <div class="price-card reveal">
+            <div class="price-tier">Classes &amp; Workshops</div>
+            <div class="price-amount"><sup>Rs</sup>6,000</div>
+            <div class="price-note">Per course, six weeks, groups welcome</div>
+            <ul class="price-features">
+              <li><i>&#10003;</i> Weekly classes, weekend friendly</li>
+              <li><i>&#10003;</i> Stress, anger and peace of mind programs</li>
+              <li><i>&#10003;</i> Career guidance for students and parents</li>
+              <li><i>&#10003;</i> Family and study pressure workshops</li>
+              <li><i>&#10003;</i> Notes and simple checklists to keep</li>
+            </ul>
+            <a class="btn btn-ghost btn-full" href="#contact">Enquire</a>
+          </div>
+        </div>
+        <p class="price-note-row reveal">
+          Fees stay modest so help stays within everyone's reach. Students coping
+          with study pressure, <a href="#contact">message me</a>: a free
+          listening session is always arranged.
+        </p>
+      </section>
 
-<!-- CTA -->
-<section id="ready">
-  <div class="wrap">
-    <div class="cta-block reveal">
-      <div class="avail-tag"><span class="avail-dot"></span> Currently welcoming new clients</div>
-      <h2>I am here, and I am listening</h2>
-      <p>Whether you are carrying something heavy, guiding a child through exams, or just want a kind talk, reach out. It does not matter how long it has been sitting with you.</p>
-      <div class="cta-btns">
-        <a href="#contact" class="btn btn-primary">Book a Session <i class="ph ph-arrow-right"></i></a>
-        <a href="https://wa.me/919446138004" class="btn btn-ghost"><i class="ph ph-whatsapp-logo"></i> WhatsApp Me</a>
-      </div>
-    </div>
-  </div>
-</section>
+      <!-- ================= ESTIMATE ================= -->
+      <section class="section" id="estimate">
+        <p class="eyebrow">a gentle start</p>
+        <h2 class="page-title">Which step feels <em>right?</em></h2>
+        <p class="page-lede">Pick what is on your mind and see a rough, honest starting point. No email, no pressure.</p>
+        <div class="est-wrap">
+          <div class="reveal">
+            <div class="est-group">
+              <div class="est-label">I am looking for</div>
+              <div class="est-opts" data-group="type">
+                <div class="est-opt selected" data-price="600" data-time="1">A private session</div>
+                <div class="est-opt" data-price="400" data-time="2">Guidance for a student</div>
+                <div class="est-opt" data-price="2500" data-time="4">A month-long programme</div>
+                <div class="est-opt" data-price="1200" data-time="2">Family or couple help</div>
+                <div class="est-opt" data-price="6000" data-time="6">A class or workshop</div>
+              </div>
+            </div>
+            <div class="est-group">
+              <div class="est-label">Who is it for</div>
+              <div class="est-opts" data-group="pages">
+                <div class="est-opt selected" data-price="0" data-time="0">Myself</div>
+                <div class="est-opt" data-price="0" data-time="1">A teen or student</div>
+                <div class="est-opt" data-price="800" data-time="2">A family member</div>
+                <div class="est-opt" data-price="1200" data-time="3">A group or classroom</div>
+              </div>
+            </div>
+            <div class="est-group">
+              <div class="est-label">How we meet</div>
+              <div class="est-opts" data-group="design">
+                <div class="est-opt selected" data-price="0" data-time="0">In person, Thrissur</div>
+                <div class="est-opt" data-price="0" data-time="1">Over the phone</div>
+                <div class="est-opt" data-price="400" data-time="1">Home or school visit</div>
+              </div>
+            </div>
+            <div class="est-group">
+              <div class="est-label">Extras</div>
+              <div class="est-opts" data-group="extras">
+                <div class="est-opt selected" data-price="0" data-time="0">None</div>
+                <div class="est-opt" data-price="800" data-time="2">Session notes to keep</div>
+                <div class="est-opt" data-price="1000" data-time="1">A talk for a school or office</div>
+                <div class="est-opt" data-price="0" data-time="1">I would like it this week</div>
+                <div class="est-opt" data-price="600" data-time="3">Monthly follow-ups</div>
+              </div>
+            </div>
+          </div>
+          <div class="estimate-result reveal">
+            <div class="slip">
+              <div class="slip-title">rough idea of fees</div>
+              <div class="est-price-range" id="est-price">Rs 600</div>
+              <div class="est-timeline">Time: <span id="est-time">about 1 session</span></div>
+              <ul class="est-includes" id="est-includes">
+                <li><i>&#10003;</i> A warm, private conversation</li>
+                <li><i>&#10003;</i> Kind, unhurried listening</li>
+                <li><i>&#10003;</i> Simple steps to take home</li>
+              </ul>
+              <a class="btn btn-ghost btn-full" href="#contact">Talk to Me First</a>
+              <p class="est-disclaimer">Rough idea only. The real beginning is always discussed kindly, with what you can truly afford in mind.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Contact</div>
-      <h2>Let us talk, I am listening</h2>
-      <p>For a session, a class, a school talk, or simply a friendly conversation, my door is always open.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="info reveal">
-        <div class="row"><i class="ph ph-envelope-simple"></i><div>kalakalyanimayil@gmail.com<small>Email any time</small></div></div>
-        <div class="row"><i class="ph ph-phone"></i><div>+91 94461 38004<small>Call or WhatsApp</small></div></div>
-        <div class="row"><i class="ph ph-map-pin"></i><div>Thrissur, Kerala<small>In person or over the phone</small></div></div>
-        <div class="socials">
-          <a href="https://wa.me/919446138004" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
-          <a href="#" aria-label="Email"><i class="ph ph-envelope-simple"></i></a>
+      <!-- ================= FAQ ================= -->
+      <section class="section" id="faq">
+        <p class="eyebrow">data sheet</p>
+        <h2 class="page-title">Questions people <em>ask.</em></h2>
+        <div class="faq-wrap reveal">
+          <div class="faq-item">
+            <button class="faq-q">Do I have to be seriously ill to see a psychologist?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Not at all. Many people come not because of illness, but because they feel tired, stuck, anxious, or simply unheard. You do not need a label to deserve a calm conversation.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Will my things stay completely private?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes. Whatever you share stays between us, always. That trust is the foundation of my work, and I hold it carefully.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">How long does one session last?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>A private session is around 45 to 60 minutes, and I never hurry it. You decide how much you wish to share. Some people feel lighter after one sitting, others choose to come a few times.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">My family is afraid of the word psychologist. What do I tell them?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Tell them counselling is like talking to a wise, trusted elder, for a clear mind and a peaceful heart. You may also bring one family member along for your first visit if it helps them feel at ease.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">Do you help children and students too?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Yes, much of my work is with teens and young adults. Study pressure, exam fear, career choices, growing up. I speak to them as I would my own children, softly and without criticism.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">What if I cannot afford the fee?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>Please do not hesitate because of money. I keep my fees modest, and for students and those truly in need I always make room for a free session.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q">I am nervous about my first visit. What happens?<span class="faq-icon">+</span></button>
+            <div class="faq-a"><p>You may start with a phone call, with no commitment. When we meet, I make tea or coffee if you like, we sit comfortably, and we simply talk. There is no exam and no judgement.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <section class="section" id="ready">
+        <div class="cta-band reveal">
+          <div class="avail-tag"><span class="avail-dot"></span> Currently welcoming new clients</div>
+          <h2 class="page-title">I am here, and I am <em>listening.</em></h2>
+          <p class="page-lede">Whether you are carrying something heavy, guiding a child through exams, or just want a kind talk, reach out. It does not matter how long it has been sitting with you.</p>
+          <div class="hero-actions">
+            <a class="btn btn-prime" href="#contact">Book a Session</a>
+            <a class="btn btn-ghost" href="https://wa.me/919446138004">WhatsApp Me</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section class="section" id="contact">
+        <p class="eyebrow">hand a note</p>
+        <h2 class="page-title">Let us talk, I am <em>listening.</em></h2>
+        <div class="contact-grid">
+          <div class="info reveal">
+            <div class="lightbox">
+              <div class="lightbox-head">
+                <span class="lid"></span>
+                <span>contact</span>
+              </div>
+              <div class="lightbox-body">
+                <div class="touch-row">
+                  <span class="k">email</span>
+                  <span class="v"><a href="mailto:kalakalyanimayil@gmail.com">kalakalyanimayil@gmail.com</a></span>
+                </div>
+                <div class="touch-row">
+                  <span class="k">call / whatsapp</span>
+                  <span class="v"><a href="https://wa.me/919446138004">+91 94461 38004</a></span>
+                </div>
+                <div class="touch-row">
+                  <span class="k">place</span>
+                  <span class="v">Thrissur, Kerala</span>
+                </div>
+              </div>
+            </div>
+            <div class="socials">
+              <a href="#">About</a>
+              <a href="#work">Classes</a>
+              <a href="#pricing">Fees</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
+          <div class="pane reveal">
+            <div class="pane-head">
+              <span class="pane-mark">&#9998;</span>
+              <span class="pane-title">Leave a note</span>
+            </div>
+            <div class="pane-body" style="padding-top:24px">
+              <form onsubmit="event.preventDefault();document.getElementById('sent').textContent='Message sent, thank you.';">
+                <div class="field">
+                  <label class="field-label" for="n">Your name</label>
+                  <input class="f-in" type="text" id="n" required />
+                </div>
+                <div class="field">
+                  <label class="field-label" for="e">Email address</label>
+                  <input class="f-in" type="email" id="e" required />
+                </div>
+                <div class="field">
+                  <label class="field-label" for="s">Subject</label>
+                  <input class="f-in" type="text" id="s" placeholder="a private session, a class, a talk..." />
+                </div>
+                <div class="field">
+                  <label class="field-label" for="m">Your message</label>
+                  <textarea class="f-area" id="m" required></textarea>
+                </div>
+                <button class="btn btn-prime btn-full" type="submit">Send Message</button>
+                <p id="sent" style="margin-top:12px;font-size:12px;color:var(--teal);min-height:16px"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="foot-inner">
+        <span>&copy; <span id="yr"></span> Kala<em style="color:var(--brass);font-style:italic">kalyani</em> &middot; every session stays private, nothing leaves the room.</span>
+        <div class="foot-right">
+          <a class="lnk" href="https://ishatxt.github.io/" target="_blank" rel="noopener">made by i++</a>
         </div>
       </div>
-      <form class="reveal" onsubmit="event.preventDefault();this.querySelector('.btn-outline,.btn-primary').textContent='Message sent, thank you.';">
-        <div class="field"><label for="n">Your Name</label><input type="text" id="n" required /></div>
-        <div class="field"><label for="e">Email Address</label><input type="email" id="e" required /></div>
-        <div class="field"><label for="s">Subject</label><input type="text" id="s" placeholder="A private session, a class, a talk..." /></div>
-        <div class="field"><label for="m">Your Message</label><textarea id="m" required></textarea></div>
-        <button class="btn btn-primary" type="submit">Send Message <i class="ph ph-arrow-right"></i></button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot">
-    <div><strong>Kala<em>kalyani</em></strong><br />Psychologist &amp; Counsellor, Thrissur, Kerala</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Classes</a></li>
-      <li><a href="#pricing">Fees</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div>© <span id="yr"></span> Kalakalyani</div>
-  </div>
-  <div class="made-line">
-    Made by <a href="https://ishatxt.github.io/" target="_blank" rel="noopener">i++</a>
-  </div>
-</footer>
-
-<script>
-/* ---------- Mobile Menu ---------- */
-(function(){
-  const b=document.getElementById('burger'),m=document.getElementById('mobile');
-  if(!b)return;
-  b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open');b.setAttribute('aria-expanded',m.classList.contains('open'))});
-  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{b.classList.remove('open');m.classList.remove('open');b.setAttribute('aria-expanded','false')}));
-})();
-
-/* ---------- Reveal on Scroll ---------- */
-(function(){
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-})();
-
-/* ---------- Counters ---------- */
-(function(){
-  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
-    const el=e.target,end=+el.dataset.count,dur=1400,t0=performance.now();
-    function s(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.floor(p*end)+(p===1?'+':'');if(p<1)requestAnimationFrame(s)}
-    requestAnimationFrame(s);io.unobserve(el);
-  }})},{threshold:.5});
-  document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
-})();
-
-/* ---------- Testimonials ---------- */
-(function(){
-  const tr=document.getElementById('ttrack'),dotsEl=document.getElementById('tdots');
-  if(!tr)return;
-  const slides=tr.children.length;let i=0;
-  for(let k=0;k<slides;k++){const b=document.createElement('button');b.setAttribute('aria-label','Show testimonial '+(k+1));b.addEventListener('click',()=>go(k));dotsEl.appendChild(b)}
-  const dots=dotsEl.children;
-  function go(n){i=(n+slides)%slides;Array.from(tr.children).forEach((s,j)=>s.classList.toggle('active',j===i));Array.from(dots).forEach((d,j)=>d.classList.toggle('active',j===i))}
-  go(0);
-  let timer=setInterval(()=>go(i+1),6000);
-  tr.addEventListener('mouseenter',()=>clearInterval(timer));
-  tr.addEventListener('mouseleave',()=>{timer=setInterval(()=>go(i+1),6000)});
-})();
-
-/* ---------- FAQ ---------- */
-document.querySelectorAll('.faq-q').forEach(btn=>{
-  btn.addEventListener('click',function(){
-    const item=this.closest('.faq-item');
-    const isOpen=item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
-    if(!isOpen){item.classList.add('open');const a=item.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px'}
-  });
-});
-
-/* ---------- Year ---------- */
-document.getElementById('yr').textContent=new Date().getFullYear();
-
-/* ---------- Starting Point Check-In ---------- */
-(function(){
-  const priceEl=document.getElementById('est-price'),timeEl=document.getElementById('est-time');
-  if(!priceEl)return;
-  document.querySelectorAll('.est-opts').forEach(group=>{
-    const isExtras=group.dataset.group==='extras';
-    group.querySelectorAll('.est-opt').forEach(opt=>{
-      opt.addEventListener('click',function(){
-        if(!isExtras){
-          group.querySelectorAll('.est-opt').forEach(o=>o.classList.remove('selected'));
-          this.classList.add('selected');
-        } else {
-          if(this.dataset.price==='0'){
-            group.querySelectorAll('.est-opt').forEach(o=>o.classList.remove('selected'));
-            this.classList.add('selected');
-          } else {
-            group.querySelector('[data-price="0"]').classList.remove('selected');
-            this.classList.toggle('selected');
-            if(!group.querySelector('.selected'))group.querySelector('[data-price="0"]').classList.add('selected');
-          }
-        }
-        recalc();
-      });
-    });
-  });
-  function recalc(){
-    let total=0,weeks=0;
-    document.querySelectorAll('.est-opt.selected').forEach(o=>{
-      total+=parseInt(o.dataset.price||0);
-      weeks+=parseInt(o.dataset.time||0);
-    });
-    total=Math.max(total,600);
-    weeks=Math.max(weeks,1);
-    const hi=total*1.3;
-    priceEl.textContent='Rs '+total.toLocaleString('en-IN')+' - Rs '+Math.round(hi).toLocaleString('en-IN');
-    timeEl.textContent='about '+(weeks==1?'1 session':weeks+' sessions');
-  }
-  recalc();
-})();
-</script>
-</body>
+    </footer>
+    <script src="js/main.js" defer></script>
+  </body>
 </html>
