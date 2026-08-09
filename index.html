@@ -1,105 +1,1002 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Kala Kalyani | Senior Psychologist in Kerala</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aabel Vinod — Web Developer & UI/UX Designer | Irinjalakuda, Kerala</title>
+<meta name="description" content="Portfolio of Aabel Vinod — luxury web developer & UI/UX designer crafting beautiful, animated experiences from Irinjalakuda, Thrissur, Kerala." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ---------- Reset & Base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#07070a;
+  --bg-2:#0d0d12;
+  --ink:#eae6dc;
+  --muted:#9a9690;
+  --gold:#d4af37;
+  --gold-2:#f5d77a;
+  --gold-3:#b8862a;
+  --glass:rgba(255,255,255,0.04);
+  --glass-2:rgba(255,255,255,0.07);
+  --border:rgba(212,175,55,0.18);
+  --shadow-gold:0 10px 40px -10px rgba(212,175,55,0.35);
+  --grad:linear-gradient(135deg,#f5d77a 0%,#d4af37 50%,#b8862a 100%);
+}
+html,body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+body{cursor:none}
+@media (max-width:900px){body{cursor:auto}}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:none;border:none;background:none;color:inherit}
+@media (max-width:900px){button{cursor:pointer}}
+section{padding:120px 6vw;position:relative;z-index:2}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.5px;line-height:1.1}
+h2{font-size:clamp(2rem,4.5vw,3.5rem);margin-bottom:.5rem}
+.eyebrow{display:inline-block;font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.gold{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.section-head{text-align:center;max-width:700px;margin:0 auto 4rem}
+.section-head p{color:var(--muted);margin-top:1rem}
+
+/* ---------- Background FX ---------- */
+.bg-fx{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg-fx::before{
+  content:"";position:absolute;inset:-20%;
+  background:
+    radial-gradient(800px 500px at 20% 10%,rgba(212,175,55,.12),transparent 60%),
+    radial-gradient(700px 500px at 80% 70%,rgba(212,175,55,.08),transparent 60%),
+    radial-gradient(500px 400px at 50% 100%,rgba(245,215,122,.06),transparent 60%);
+  animation:drift 18s ease-in-out infinite alternate;
+}
+@keyframes drift{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-30px,20px,0)}}
+#particles{position:absolute;inset:0;width:100%;height:100%}
+
+/* ---------- Custom Cursor ---------- */
+.cursor,.cursor-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:screen;will-change:transform}
+.cursor{width:38px;height:38px;border:1px solid rgba(212,175,55,.6);box-shadow:0 0 24px rgba(212,175,55,.35);transition:width .25s,height .25s,background .25s,border-color .25s}
+.cursor-dot{width:6px;height:6px;background:var(--gold-2);box-shadow:0 0 12px var(--gold)}
+.cursor.hover{width:64px;height:64px;background:rgba(212,175,55,.08);border-color:var(--gold-2)}
+@media (max-width:900px){.cursor,.cursor-dot{display:none}}
+
+/* ---------- Navbar (Glass) ---------- */
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px,92vw);z-index:50;display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border:1px solid var(--border);border-radius:999px;background:rgba(15,15,20,.55);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:1px}
+.brand span{color:var(--gold)}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav ul a{font-size:.9rem;color:var(--muted);position:relative;padding:6px 2px;transition:color .3s}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--grad);transition:width .35s ease}
+.nav ul a:hover{color:var(--ink)}
+.nav ul a:hover::after{width:100%}
+.nav-cta{padding:10px 20px;border-radius:999px;border:1px solid var(--border);font-size:.85rem;color:var(--ink);background:rgba(212,175,55,.06);transition:all .3s}
+.nav-cta:hover{background:var(--grad);color:#1a1208;box-shadow:var(--shadow-gold)}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:820px){
+  .nav ul,.nav-cta{display:none}
+  .burger{display:flex}
+  .mobile{position:fixed;top:90px;left:50%;transform:translateX(-50%);width:min(92vw,420px);background:rgba(15,15,20,.85);backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:24px;padding:24px;z-index:49;display:flex;flex-direction:column;gap:14px;opacity:0;pointer-events:none;transform:translate(-50%,-10px);transition:.35s ease}
+  .mobile.open{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+  .mobile a{padding:10px;border-radius:12px;color:var(--ink)}
+  .mobile a:hover{background:rgba(212,175,55,.08)}
+}
+@media (min-width:821px){.mobile{display:none}}
+
+/* ---------- Buttons (ripple) ---------- */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-size:.9rem;font-weight:500;letter-spacing:.05em;transition:transform .3s,box-shadow .3s,background .3s;will-change:transform}
+.btn-primary{background:var(--grad);color:#1a1208;box-shadow:var(--shadow-gold)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 50px -10px rgba(212,175,55,.55)}
+.btn-ghost{border:1px solid var(--border);background:var(--glass);color:var(--ink)}
+.btn-ghost:hover{transform:translateY(-3px) scale(1.03);background:rgba(212,175,55,.08);border-color:var(--gold)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:ripple .7s ease-out;pointer-events:none}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+
+/* ---------- Hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:160px;position:relative;overflow:hidden}
+.hero-inner{max-width:900px;position:relative;z-index:3}
+.hero .location{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);padding:8px 18px;border:1px solid var(--border);border-radius:999px;background:var(--glass);backdrop-filter:blur(10px);margin-bottom:28px}
+.hero .location .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.hero h1{font-size:clamp(3rem,8vw,7rem);margin-bottom:1rem}
+.hero .role{font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--muted);height:1.6em;margin-bottom:2rem}
+.hero .role .typed{color:var(--gold-2);font-weight:500}
+.hero .role .caret{display:inline-block;width:2px;background:var(--gold);margin-left:4px;animation:blink 1s steps(1) infinite;vertical-align:middle;height:1em}
+@keyframes blink{50%{opacity:0}}
+.hero-cta{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.scroll-ind{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-ind::after{content:"";width:1px;height:40px;background:linear-gradient(var(--gold),transparent);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.parallax-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:1;will-change:transform}
+.orb-1{width:380px;height:380px;background:radial-gradient(circle,rgba(212,175,55,.4),transparent 70%);top:10%;left:5%}
+.orb-2{width:300px;height:300px;background:radial-gradient(circle,rgba(245,215,122,.25),transparent 70%);bottom:15%;right:8%}
+
+/* ---------- Reveal Animations ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-scale{opacity:0;transform:scale(.92);transition:opacity .9s ease,transform .9s ease}
+.reveal-scale.in{opacity:1;transform:scale(1)}
+body{animation:bodyIn 1s ease both}
+@keyframes bodyIn{from{opacity:0}to{opacity:1}}
+
+/* ---------- About ---------- */
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+.about-card{padding:40px;border:1px solid var(--border);border-radius:24px;background:var(--glass);backdrop-filter:blur(14px);position:relative;overflow:hidden}
+.about-card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 0% 0%,rgba(212,175,55,.15),transparent 60%);pointer-events:none}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.stat{padding:18px;border:1px solid var(--border);border-radius:16px;text-align:center;background:rgba(0,0,0,.3)}
+.stat .num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold-2)}
+.stat .lbl{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.about p{color:var(--muted);margin-bottom:1rem}
+@media (max-width:820px){.about{grid-template-columns:1fr}}
+
+/* ---------- Services ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.card{position:relative;padding:36px 28px;border:1px solid var(--border);border-radius:24px;background:var(--glass);backdrop-filter:blur(14px);transition:transform .5s ease,border-color .5s,box-shadow .5s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,175,55,.12),transparent 60%);opacity:0;transition:.5s}
+.card:hover{transform:translateY(-8px);border-color:rgba(212,175,55,.5);box-shadow:0 20px 60px -20px rgba(212,175,55,.4)}
+.card:hover::before{opacity:1}
+.card .icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:var(--grad);color:#1a1208;font-size:1.4rem;margin-bottom:20px;box-shadow:var(--shadow-gold)}
+.card h3{font-size:1.6rem;margin-bottom:.6rem}
+.card p{color:var(--muted);font-size:.95rem}
+
+/* ---------- Portfolio ---------- */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1200px;margin:0 auto}
+.project{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;background:#111}
+.project .thumb{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.project .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .8s ease;
+}.project:nth-child(1) .thumb{background:linear-gradient(135deg,#1a1208,#3d2a0a)}
+.project:nth-child(2) .thumb{background:linear-gradient(135deg,#0a1a1a,#1a3d3d)}
+.project:nth-child(3) .thumb{background:linear-gradient(135deg,#1a0a1a,#3d1a3d)}
+.project:nth-child(4) .thumb{background:linear-gradient(135deg,#0a0a1a,#1a1a3d)}
+.project .overlay{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(0deg,rgba(7,7,10,.95) 0%,rgba(7,7,10,.4) 60%,transparent 100%);opacity:0;transform:translateY(20px);transition:.5s ease}
+.project:hover .overlay{opacity:1;transform:translateY(0)}
+.project:hover .thumb{transform:scale(1.08)}
+.project .overlay h3{font-size:1.6rem;margin-bottom:.4rem}
+.project .overlay p{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.project .tag{display:inline-block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding:4px 10px;border:1px solid var(--border);border-radius:999px;background:rgba(0,0,0,.4)}
+
+/* ---------- Skills ---------- */
+.skills{max-width:900px;margin:0 auto;display:grid;gap:20px}
+.skill{display:grid;gap:8px}
+.skill-head{display:flex;justify-content:space-between;font-size:.9rem}
+.skill-head .pct{color:var(--gold-2)}
+.bar{height:6px;border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden;position:relative}
+.bar i{position:absolute;inset:0 100% 0 0;background:var(--grad);border-radius:999px;box-shadow:0 0 12px rgba(212,175,55,.5);transition:right 1.6s cubic-bezier(.2,.7,.2,1)}
+.skill.in .bar i{right:var(--r,0%)}
+.tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:40px}
+.tag{padding:8px 16px;border:1px solid var(--border);border-radius:999px;background:var(--glass);font-size:.85rem;color:var(--muted);transition:.3s}
+.tag:hover{color:var(--gold-2);border-color:var(--gold);transform:translateY(-3px)}
+
+/* ---------- Testimonials ---------- */
+.tcarousel{max-width:900px;margin:0 auto;position:relative;overflow:hidden;border:1px solid var(--border);border-radius:28px;background:var(--glass);backdrop-filter:blur(14px)}
+.ttrack{display:flex;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.tslide{min-width:100%;padding:50px 60px;text-align:center}
+.tslide .quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.4vw,1.8rem);font-style:italic;line-height:1.5;color:var(--ink);margin-bottom:24px;position:relative}
+.tslide .quote::before{content:"\201C";position:absolute;left:50%;top:-50px;transform:translateX(-50%);font-size:6rem;color:var(--gold);opacity:.25;font-family:serif;line-height:1}
+.tslide .who{color:var(--gold-2);letter-spacing:.15em;text-transform:uppercase;font-size:.8rem}
+.tslide .role-t{color:var(--muted);font-size:.8rem;margin-top:4px}
+.tdots{display:flex;justify-content:center;gap:10px;padding-bottom:30px}
+.tdots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);transition:.3s}
+.tdots button.active{background:var(--gold);width:28px;border-radius:999px}
+@media (max-width:600px){.tslide{padding:50px 28px}}
+
+/* ---------- Contact ---------- */
+.contact-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:start}
+@media (max-width:820px){.contact-wrap{grid-template-columns:1fr}}
+.info{padding:36px;border:1px solid var(--border);border-radius:24px;background:var(--glass);backdrop-filter:blur(14px)}
+.info h3{font-size:1.6rem;margin-bottom:1rem}
+.info p{color:var(--muted);margin-bottom:1.4rem}
+.info .row{display:flex;align-items:center;gap:14px;margin:14px 0;font-size:.95rem;color:var(--muted)}
+.info .row span{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:rgba(212,175,55,.1);border:1px solid var(--border);color:var(--gold-2)}
+.socials{display:flex;gap:12px;margin-top:24px}
+.socials a{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--border);background:var(--glass);transition:.4s;color:var(--ink)}
+.socials a:hover{transform:translateY(-4px) rotate(-6deg);border-color:var(--gold);background:rgba(212,175,55,.12);box-shadow:var(--shadow-gold);color:var(--gold-2)}
+form{padding:36px;border:1px solid var(--border);border-radius:24px;background:var(--glass);backdrop-filter:blur(14px);display:grid;gap:18px}
+.field{position:relative}
+.field input,.field textarea{width:100%;padding:16px 18px;border-radius:14px;background:rgba(0,0,0,.35);border:1px solid var(--border);color:var(--ink);font:inherit;font-size:.95rem;transition:.3s;cursor:none}
+@media (max-width:900px){.field input,.field textarea{cursor:text}}
+.field textarea{min-height:140px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.15)}
+.field label{position:absolute;left:18px;top:16px;color:var(--muted);font-size:.95rem;pointer-events:none;transition:.3s;background:transparent;padding:0 6px}
+.field input:focus + label,.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,.field textarea:not(:placeholder-shown) + label{
+  top:-9px;font-size:.7rem;color:var(--gold-2);background:#0a0a0e;letter-spacing:.15em;text-transform:uppercase
+}
+
+/* ---------- Floating Hire Me ---------- */
+.hire{position:fixed;right:28px;bottom:28px;z-index:40;padding:14px 22px;border-radius:999px;background:var(--grad);color:#1a1208;font-weight:600;font-size:.85rem;letter-spacing:.05em;box-shadow:var(--shadow-gold);opacity:0;transform:translateY(30px) scale(.9);transition:.5s ease;animation:floatY 3s ease-in-out infinite}
+.hire.show{opacity:1;transform:translateY(0) scale(1)}
+.hire:hover{transform:translateY(-4px) scale(1.05)}
+@keyframes floatY{0%,100%{translate:0 0}50%{translate:0 -6px}}
+@media (max-width:820px){.hire{right:16px;bottom:16px;padding:12px 18px;font-size:.8rem}}
+
+/* ---------- How I Work (Process) ---------- */
+.process-wrap{max-width:1100px;margin:0 auto}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:24px;overflow:hidden}
+.process-step{padding:36px 28px;border-right:1px solid var(--border);position:relative;background:var(--glass)}
+.process-step:last-child{border-right:none}
+.process-step .step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:rgba(212,175,55,.1);line-height:1;margin-bottom:14px}
+.process-step h4{font-family:'Cormorant Garamond',serif;font-size:1.25rem;margin-bottom:10px;color:var(--ink)}
+.process-step p{font-size:.87rem;color:var(--muted);line-height:1.75}
+.process-step .step-icon{font-size:1.5rem;margin-bottom:12px}
+@media(max-width:820px){.process-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.process-grid{grid-template-columns:1fr}.process-step{border-right:none;border-bottom:1px solid var(--border)}.process-step:last-child{border-bottom:none}}
+
+/* ---------- Pricing ---------- */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.price-card{padding:40px 32px;border:1px solid var(--border);border-radius:24px;background:var(--glass);backdrop-filter:blur(14px);position:relative;display:flex;flex-direction:column}
+.price-card.featured{border-color:rgba(212,175,55,.45);background:rgba(212,175,55,.04)}
+.price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--grad);color:#1a1208;font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:6px 18px;border-radius:999px;white-space:nowrap}
+.price-tier{font-size:.73rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--ink);line-height:1;margin-bottom:4px}
+.price-amount sup{font-size:1.3rem;color:var(--gold-2);vertical-align:top;margin-top:.4rem;display:inline-block}
+.price-note{font-size:.8rem;color:var(--muted);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1}
+.price-features li{font-size:.88rem;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.price-features li::before{content:"✓";color:var(--gold-2);font-size:.85rem;flex-shrink:0;margin-top:.05rem}
+.price-features li.no{color:rgba(154,150,144,.35)}
+.price-features li.no::before{content:"–";color:rgba(154,150,144,.25)}
+.price-cta{display:block;text-align:center;padding:13px 24px;border-radius:999px;font-size:.9rem;font-weight:500;border:1px solid var(--border);background:var(--glass);color:var(--ink);transition:background .3s,border-color .3s,color .3s}
+.price-cta:hover{background:rgba(212,175,55,.08);border-color:var(--gold);color:var(--gold-2)}
+.price-card.featured .price-cta{background:var(--grad);color:#1a1208;border-color:transparent}
+.price-card.featured .price-cta:hover{box-shadow:var(--shadow-gold)}
+.pricing-note{text-align:center;color:var(--muted);font-size:.85rem;margin-top:32px}
+
+/* ---------- FAQ ---------- */
+.faq-wrap{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{border:1px solid var(--border);border-radius:16px;background:var(--glass);overflow:hidden}
+.faq-q{width:100%;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;font-size:.97rem;color:var(--ink);background:none;font-family:'Inter',sans-serif;text-align:left;gap:20px;cursor:pointer;border:none}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;flex-shrink:0;font-size:.75rem;color:var(--gold-2);transition:transform .3s,background .3s,border-color .3s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(212,175,55,.1);border-color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s ease,padding .38s ease;padding:0 28px}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:24px}
+.faq-a p{font-size:.9rem;color:var(--muted);line-height:1.85}
+
+/* ---------- Why Choose Me ---------- */
+.compare-wrap{max-width:960px;margin:0 auto;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;border-radius:20px;overflow:hidden;border:1px solid var(--border);min-width:520px}
+.compare-table th,.compare-table td{padding:16px 22px;text-align:left;font-size:.88rem;border-bottom:1px solid var(--border)}
+.compare-table thead th{background:rgba(0,0,0,.4);color:var(--muted);font-weight:500;letter-spacing:.06em;font-size:.75rem;text-transform:uppercase}
+.compare-table thead th.me-col{color:var(--gold-2);background:rgba(212,175,55,.06)}
+.compare-table tbody tr:last-child td{border-bottom:none}
+.compare-table tbody td{color:var(--muted);background:var(--glass)}
+.compare-table tbody td.me-col{background:rgba(212,175,55,.025)}
+.compare-table tbody td:first-child{color:var(--ink);font-weight:500}
+.check{color:#4ade80}
+.cross{color:rgba(154,150,144,.3)}
+.partial{color:var(--gold-2);font-size:.85rem}
+
+/* ---------- Project Estimate Calculator ---------- */
+.estimate-wrap{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start}
+@media(max-width:720px){.estimate-wrap{grid-template-columns:1fr}}
+.est-group{margin-bottom:22px}
+.est-label{font-size:.73rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.est-opts{display:flex;flex-wrap:wrap;gap:8px}
+.est-opt{padding:8px 16px;border:1px solid var(--border);border-radius:999px;font-size:.84rem;color:var(--muted);background:var(--glass);cursor:pointer;user-select:none;transition:border-color .2s,color .2s,background .2s}
+.est-opt.selected{border-color:var(--gold);color:var(--gold-2);background:rgba(212,175,55,.08)}
+.estimate-result{padding:36px;border:1px solid var(--border);border-radius:20px;background:var(--glass);backdrop-filter:blur(14px);position:sticky;top:110px}
+.est-result-label{font-size:.73rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.est-price-range{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold-2);line-height:1;margin-bottom:6px}
+.est-timeline{font-size:.88rem;color:var(--muted);margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.est-timeline strong{color:var(--ink)}
+.est-includes{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.est-includes li{font-size:.85rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+.est-includes li::before{content:"·";color:var(--gold);font-size:1.4rem;line-height:.9}
+.est-disclaimer{font-size:.73rem;color:rgba(154,150,144,.45);line-height:1.7}
+
+/* ---------- Start a Project CTA Block ---------- */
+.cta-block{max-width:880px;margin:0 auto;padding:70px 60px;border:1px solid var(--border);border-radius:28px;background:var(--glass);backdrop-filter:blur(14px);text-align:center;position:relative;overflow:hidden}
+.cta-block::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 100%,rgba(212,175,55,.09),transparent 60%);pointer-events:none}
+.cta-block h2{font-size:clamp(1.8rem,4vw,3rem);margin-bottom:1rem}
+.cta-block p{color:var(--muted);max-width:520px;margin:0 auto 2rem;line-height:1.8}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.avail-tag{display:inline-flex;align-items:center;gap:8px;font-size:.73rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(100,220,130,.8);border:1px solid rgba(100,220,130,.25);border-radius:999px;padding:6px 14px;margin-bottom:24px}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:rgba(100,220,130,.9);box-shadow:0 0 8px rgba(100,220,130,.5);animation:pulse 2s infinite}
+@media(max-width:640px){.cta-block{padding:50px 24px}}
+
+/* ---------- Footer ---------- */
+footer{padding:50px 6vw 30px;border-top:1px solid var(--border);background:rgba(0,0,0,.4);position:relative;z-index:2}
+.foot{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center;color:var(--muted);font-size:.85rem}
+.foot ul{display:flex;gap:22px;list-style:none}
+.foot ul a:hover{color:var(--gold-2)}
+.foot .made{color:var(--ink)}
+.foot .made span{color:var(--gold)}
+</style>
+</head>
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="index.html">
-                    <!-- Placeholder for assets/images/logo.png -->
-                    KK
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="testimonials.html">Testimonials</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="faqs.html">FAQs</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- BG FX -->
+<div class="bg-fx"><canvas id="particles"></canvas></div>
 
-    <main>
-        <section class="hero fade-in">
-            <h1>Guiding Minds, Healing Hearts</h1>
-            <p>Welcome to the portfolio of Dr. Kala Kalyani, PhD — providing compassionate psychological care in Kerala, India. Dedicated to helping you find balance and peace.</p>
-            <a href="contact.html" class="btn">Book an Appointment</a>
-        </section>
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursor-dot"></div>
 
-        <section class="intro reveal">
-            <div class="grid grid-2">
-                <div class="image-placeholder">
-                    <!-- Placeholder for assets/images/kala-kalyani.jpg -->
-                    <div style="background-color: #ddd; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
-                        [Professional Photo Placeholder]
-                    </div>
-                </div>
-                <div class="intro-content">
-                    <h2>Meet Dr. Kala Kalyani</h2>
-                    <p>With over 10 years of clinical experience and a PhD in Psychology, Dr. Kala Kalyani has dedicated her career to helping individuals navigate the complexities of their mental health.</p>
-                    <p>Based in the serene landscapes of Kerala, she offers a warm, comforting, and professional environment for her clients.</p>
-                    <br>
-                    <a href="about.html" class="btn">Learn More About Me</a>
-                </div>
-            </div>
-        </section>
+<!-- Nav -->
+<nav class="nav">
+  <a href="#home" class="brand">Aabel<span>.</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#testimonials">Praise</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile" id="mobile">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#process">Process</a>
+  <a href="#skills">Skills</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</div>
 
-        <section class="services-preview reveal">
-            <h2 class="text-center mb-2">My Specializations</h2>
-            <div class="grid grid-4">
-                <div class="card">
-                    <h3>Anxiety</h3>
-                    <p>Managing excessive worry and fear through evidence-based techniques.</p>
-                </div>
-                <div class="card">
-                    <h3>Depression</h3>
-                    <p>Comprehensive support for navigating emotional challenges and low mood.</p>
-                </div>
-                <div class="card">
-                    <h3>Trauma</h3>
-                    <p>A safe space for processing and healing from past experiences.</p>
-                </div>
-                <div class="card">
-                    <h3>Couples Counseling</h3>
-                    <p>Building stronger communication and deeper connections.</p>
-                </div>
-            </div>
-            <div class="text-center" style="margin-top: 2rem;">
-                <a href="services.html" style="color: var(--primary-color); font-weight: 600;">View All Services &rarr;</a>
-            </div>
-        </section>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="parallax-orb orb-1" data-depth="0.05"></div>
+  <div class="parallax-orb orb-2" data-depth="0.08"></div>
+  <div class="hero-inner">
+    <div class="location reveal"><span class="dot"></span> Irinjalakuda · Thrissur · Kerala</div>
+    <h1 class="reveal">Aabel <span class="gold">Vinod</span></h1>
+    <div class="role reveal">I'm a <span class="typed" id="typed"></span><span class="caret"></span></div>
+    <div class="hero-cta reveal">
+      <a href="#work" class="btn btn-primary">View Work →</a>
+      <a href="#contact" class="btn btn-ghost">Contact Me</a>
+    </div>
+  </div>
+  <div class="scroll-ind">Scroll</div>
+</section>
 
-        <section class="testimonials-preview reveal">
-            <h2 class="text-center mb-2">Client Experiences</h2>
-            <div class="grid grid-2">
-                <div class="card">
-                    <p>"Dr. Kala provided a safe and comforting space when I needed it most. Her approach is both professional and incredibly warm."</p>
-                    <h4 style="margin-top: 1rem;">— Rahul M., Kochi</h4>
-                </div>
-                <div class="card">
-                    <p>"The counseling sessions have truly transformed my perspective on stress management. Highly recommended."</p>
-                    <h4 style="margin-top: 1rem;">— Priya S., Trivandrum</h4>
-                </div>
-            </div>
-            <div class="text-center" style="margin-top: 2rem;">
-                <a href="testimonials.html" style="color: var(--primary-color); font-weight: 600;">Read More Reviews &rarr;</a>
-            </div>
-        </section>
-    </main>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <div class="reveal">
+      <div class="eyebrow">About Me</div>
+      <h2>Crafting <span class="gold">luxury</span> on the web.</h2>
+      <p>I'm Aabel — a web developer based in Irinjalakuda, Kerala, with a soft spot for cinematic motion and pixel-perfect interfaces. I build with the fundamentals — HTML, CSS, and JavaScript — and obsess over the details that turn a website into an experience.</p>
+      <p>From animated landing pages to polished portfolios, I design and develop digital products that feel premium, perform fast, and leave an impression.</p>
+      <div class="hero-cta" style="justify-content:flex-start;margin-top:8px">
+        <a href="#work" class="btn btn-ghost">See My Work</a>
+      </div>
+    </div>
+    <div class="about-card reveal">
+      <h3 style="font-size:1.6rem;margin-bottom:14px">A few things about me</h3>
+      <p style="color:var(--muted)">Self-taught, detail-driven, and always chasing the next animation that makes you go "whoa."</p>
+      <div class="about-stats">
+        <div class="stat"><div class="num" data-count="40">0</div><div class="lbl">Projects</div></div>
+        <div class="stat"><div class="num" data-count="3">0</div><div class="lbl">Years</div></div>
+        <div class="stat"><div class="num" data-count="25">0</div><div class="lbl">Clients</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 Dr. Kala Kalyani. All rights reserved. | Kerala, India</p>
-    </footer>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-head reveal">
+    <div class="eyebrow">Services</div>
+    <h2>What I <span class="gold">do best</span></h2>
+    <p>End-to-end craft, from first sketch to final pixel.</p>
+  </div>
+  <div class="cards">
+    <div class="card reveal-scale">
+      <div class="icon">&lt;/&gt;</div>
+      <h3>Web Development</h3>
+      <p>Hand-coded, fast, accessible websites built with clean HTML, modern CSS, and lightweight JavaScript.</p>
+    </div>
+    <div class="card reveal-scale">
+      <div class="icon">✦</div>
+      <h3>UI / UX Design</h3>
+      <p>Elegant interfaces with thoughtful flows — luxurious, minimal, and centered on the user.</p>
+    </div>
+    <div class="card reveal-scale">
+      <div class="icon">⚡</div>
+      <h3>Animation & Effects</h3>
+      <p>Scroll choreography, micro-interactions, and visual magic that brings your brand to life.</p>
+    </div>
+  </div>
+</section>
 
-<script src="assets/js/animations.js"></script></body>
+<!-- WORK -->
+<section id="work">
+  <div class="section-head reveal">
+    <div class="eyebrow">Selected Work</div>
+    <h2>Recent <span class="gold">projects</span></h2>
+    <p>A peek at things I've designed and built lately.</p>
+  </div>
+  <div class="projects">
+    <div class="project reveal-scale">
+      <div class="thumb">
+     <img src="2.jpg" alt="Aurea Project">
+      </div>
+      <div class="overlay"><span class="tag">E-commerce</span><h3>Aurea Jewels</h3><p>Luxury jewelry storefront with cinematic product reveals.</p></div>
+    </div>
+    <div class="project reveal-scale">
+      <div class="thumb">
+   <img src="1.jpg" alt="Aurea Project">
+      </div>
+      <div class="overlay"><span class="tag">Branding</span><h3>Verde Studio</h3><p>Editorial portfolio for a sustainable design studio.</p></div>
+      </div>
+      <div class="project reveal-scale">
+      <div class="thumb">
+      <img src="3.jpg" alt="Aurea Project">
+      </div>
+      <div class="overlay"><span class="tag">SaaS</span><h3>Noir Analytics</h3><p>Dashboard with real-time animated data visualization.</p></div>
+    </div>
+    <div class="project reveal-scale">
+     <div class="thumb">
+      <img src="4.jpg" alt="Aurea Project">
+    </div>
+      <div class="overlay"><span class="tag">Landing</span><h3>Lume App</h3><p>Animated launch page for a meditation companion.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-head reveal">
+    <div class="eyebrow">Skills</div>
+    <h2>Tools of the <span class="gold">trade</span></h2>
+  </div>
+  <div class="skills">
+    <div class="skill reveal" style="--r:5%"><div class="skill-head"><span>HTML5</span><span class="pct">95%</span></div><div class="bar"><i></i></div></div>
+    <div class="skill reveal" style="--r:8%"><div class="skill-head"><span>CSS3 / Tailwind</span><span class="pct">92%</span></div><div class="bar"><i></i></div></div>
+    <div class="skill reveal" style="--r:12%"><div class="skill-head"><span>JavaScript</span><span class="pct">88%</span></div><div class="bar"><i></i></div></div>
+    <div class="skill reveal" style="--r:18%"><div class="skill-head"><span>UI / UX Design</span><span class="pct">82%</span></div><div class="bar"><i></i></div></div>
+    <div class="skill reveal" style="--r:15%"><div class="skill-head"><span>Animation / GSAP</span><span class="pct">85%</span></div><div class="bar"><i></i></div></div>
+  </div>
+  <div class="tags reveal">
+    <span class="tag">Figma</span><span class="tag">Git</span><span class="tag">Responsive</span><span class="tag">SEO</span><span class="tag">Performance</span><span class="tag">Three.js</span><span class="tag">Framer Motion</span><span class="tag">Glassmorphism</span>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-head reveal">
+    <div class="eyebrow">Kind Words</div>
+    <h2>What clients <span class="gold">say</span></h2>
+  </div>
+  <div class="tcarousel reveal">
+    <div class="ttrack" id="ttrack">
+      <div class="tslide"><p class="quote">Aabel turned our vague vision into a website that genuinely feels luxurious. The animations are buttery, the design is timeless.</p><div class="who">Priya Menon</div><div class="role-t">Founder, Aurea Jewels</div></div>
+      <div class="tslide"><p class="quote">A rare developer who cares about both code quality and visual polish. Working with him was effortless from start to finish.</p><div class="who">Rahul Krishnan</div><div class="role-t">CEO, Verde Studio</div></div>
+      <div class="tslide"><p class="quote">The attention to detail is on another level. Every micro-interaction feels intentional. Our conversion went up 38%.</p><div class="who">Anjali Suresh</div><div class="role-t">Marketing Lead, Lume</div></div>
+    </div>
+    <div class="tdots" id="tdots"></div>
+  </div>
+</section>
+
+<!-- HOW I WORK -->
+<section id="process">
+  <div class="section-head reveal">
+    <div class="eyebrow">My Process</div>
+    <h2>How I <span class="gold">work</span></h2>
+    <p>From the first message to the final launch — here's what working with me actually looks like.</p>
+  </div>
+  <div class="process-wrap">
+    <div class="process-grid">
+      <div class="process-step reveal">
+        
+        <div class="step-num">01</div>
+        <h4>Discovery</h4>
+        <p>We start with a call or message to understand your business, goals, and target audience. No templates — every project starts from scratch with your needs in mind.</p>
+      </div>
+      <div class="process-step reveal">
+        
+        <div class="step-num">02</div>
+        <h4>Design</h4>
+        <p>I create high-fidelity Figma mockups for your review before writing a single line of code. You see exactly what you're getting and can request changes freely.</p>
+      </div>
+      <div class="process-step reveal">
+        
+        <div class="step-num">03</div>
+        <h4>Build</h4>
+        <p>Clean, semantic HTML, CSS & JavaScript — hand-coded for speed and accessibility. You get progress updates throughout so there are no surprises at the end.</p>
+      </div>
+      <div class="process-step reveal">
+        
+        <div class="step-num">04</div>
+        <h4>Launch & Support</h4>
+        <p>I handle deployment, final testing, and a 2-week post-launch support window so you're never left stranded. Ongoing retainers available for growing businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-head reveal">
+    <div class="eyebrow">Pricing</div>
+    <h2>Simple, transparent <span class="gold">pricing</span></h2>
+    <p>No hidden fees. No surprise invoices. Pick the package that fits your project, or let's talk custom.</p>
+  </div>
+  <div class="pricing-grid">
+    <!-- Starter -->
+    <div class="price-card reveal-scale">
+      <div class="price-tier">Starter</div>
+      <div class="price-amount"><sup>₹</sup>12,000</div>
+      <div class="price-note">One-time · Delivered in ~1 week</div>
+      <ul class="price-features">
+        <li>Up to 3 pages</li>
+        <li>Responsive design (mobile + desktop)</li>
+        <li>Contact form integration</li>
+        <li>Basic SEO setup</li>
+        <li>1 round of revisions</li>
+        <li class="no">Custom animations</li>
+        <li class="no">CMS / blog integration</li>
+        <li class="no">E-commerce functionality</li>
+      </ul>
+      <a href="#contact" class="price-cta">Get Started →</a>
+    </div>
+    <!-- Pro (featured) -->
+    <div class="price-card featured reveal-scale">
+      <div class="price-badge">Most Popular</div>
+      <div class="price-tier">Professional</div>
+      <div class="price-amount"><sup>₹</sup>28,000</div>
+      <div class="price-note">One-time · Delivered in ~2–3 weeks</div>
+      <ul class="price-features">
+        <li>Up to 8 pages</li>
+        <li>Responsive design (all devices)</li>
+        <li>Custom animations & interactions</li>
+        <li>Advanced SEO + Performance optimisation</li>
+        <li>Contact form + WhatsApp integration</li>
+        <li>3 rounds of revisions</li>
+        <li>2 weeks post-launch support</li>
+        <li class="no">E-commerce / payment gateway</li>
+      </ul>
+      <a href="#contact" class="price-cta">Get Started →</a>
+    </div>
+    <!-- Premium -->
+    <div class="price-card reveal-scale">
+      <div class="price-tier">Premium</div>
+      <div class="price-amount"><sup>₹</sup>55,000</div>
+      <div class="price-note">One-time · Delivered in ~4–6 weeks</div>
+      <ul class="price-features">
+        <li>Unlimited pages</li>
+        <li>Full UI/UX design in Figma</li>
+        <li>Cinematic animations & scroll effects</li>
+        <li>CMS integration (blog / products)</li>
+        <li>E-commerce or payment gateway</li>
+        <li>Full SEO + analytics setup</li>
+        <li>Unlimited revisions during build</li>
+        <li>1 month post-launch support</li>
+      </ul>
+      <a href="#contact" class="price-cta">Get Started →</a>
+    </div>
+  </div>
+  <p class="pricing-note reveal">All prices are starting estimates. Final quote depends on project scope. <a href="#contact" style="color:var(--gold-2)">Message me</a> for a free custom quote within 24 hours.</p>
+</section>
+
+<!-- WHY CHOOSE ME -->
+<section id="why">
+  <div class="section-head reveal">
+    <div class="eyebrow">Why Choose Me</div>
+    <h2>Aabel vs. the <span class="gold">alternatives</span></h2>
+    <p>Here's how working with me compares to other common options clients consider.</p>
+  </div>
+  <div class="compare-wrap reveal">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>What You Get</th>
+          <th class="me-col">✦ Aabel Vinod</th>
+          <th>Page Builders (Wix / Squarespace)</th>
+          <th>Large Agency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Custom design (no templates)</td>
+          <td class="me-col"><span class="check">✓</span> Fully custom</td>
+          <td><span class="cross">✗</span> Template-based</td>
+          <td><span class="check">✓</span> Custom</td>
+        </tr>
+        <tr>
+          <td>Fast load speed & performance</td>
+          <td class="me-col"><span class="check">✓</span> Hand-coded, lightweight</td>
+          <td><span class="cross">✗</span> Heavy, bloated</td>
+          <td><span class="partial">~ Varies</span></td>
+        </tr>
+        <tr>
+          <td>Direct communication</td>
+          <td class="me-col"><span class="check">✓</span> Talk to me directly</td>
+          <td><span class="cross">✗</span> No human</td>
+          <td><span class="cross">✗</span> Account manager</td>
+        </tr>
+        <tr>
+          <td>Cinematic animations</td>
+          <td class="me-col"><span class="check">✓</span> Speciality</td>
+          <td><span class="cross">✗</span> Very limited</td>
+          <td><span class="partial">~ Extra cost</span></td>
+        </tr>
+        <tr>
+          <td>Ownership of code</td>
+          <td class="me-col"><span class="check">✓</span> 100% yours</td>
+          <td><span class="cross">✗</span> Locked to platform</td>
+          <td><span class="check">✓</span> Usually yes</td>
+        </tr>
+        <tr>
+          <td>Price range</td>
+          <td class="me-col"><span style="color:var(--gold-2)">₹12k – ₹55k</span></td>
+          <td><span style="color:var(--muted)">₹0 + monthly fees</span></td>
+          <td><span style="color:var(--muted)">₹80k – ₹5L+</span></td>
+        </tr>
+        <tr>
+          <td>Ongoing support</td>
+          <td class="me-col"><span class="check">✓</span> Included</td>
+          <td><span class="partial">~ Self-service</span></td>
+          <td><span class="partial">~ Paid retainer</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROJECT ESTIMATE CALCULATOR -->
+<section id="estimate">
+  <div class="section-head reveal">
+    <div class="eyebrow">Quick Estimate</div>
+    <h2>What will your project <span class="gold">cost?</span></h2>
+    <p>Select the options that match your needs and get an instant ballpark figure. No email required.</p>
+  </div>
+  <div class="estimate-wrap">
+    <div class="estimate-options reveal">
+      <div class="est-group">
+        <div class="est-label">Project Type</div>
+        <div class="est-opts" data-group="type">
+          <div class="est-opt selected" data-price="12000" data-time="1">Portfolio / Personal Site</div>
+          <div class="est-opt" data-price="22000" data-time="2">Business Website</div>
+          <div class="est-opt" data-price="35000" data-time="3">E-commerce Store</div>
+          <div class="est-opt" data-price="28000" data-time="3">Landing Page Campaign</div>
+          <div class="est-opt" data-price="50000" data-time="5">Web App / Dashboard</div>
+        </div>
+      </div>
+      <div class="est-group">
+        <div class="est-label">Number of Pages</div>
+        <div class="est-opts" data-group="pages">
+          <div class="est-opt selected" data-price="0" data-time="0">1–3 pages</div>
+          <div class="est-opt" data-price="8000" data-time="1">4–7 pages</div>
+          <div class="est-opt" data-price="18000" data-time="2">8–15 pages</div>
+          <div class="est-opt" data-price="30000" data-time="3">15+ pages</div>
+        </div>
+      </div>
+      <div class="est-group">
+        <div class="est-label">Design & Animations</div>
+        <div class="est-opts" data-group="design">
+          <div class="est-opt selected" data-price="0" data-time="0">Basic (clean & simple)</div>
+          <div class="est-opt" data-price="8000" data-time="1">Standard (hover effects, transitions)</div>
+          <div class="est-opt" data-price="18000" data-time="2">Premium (cinematic, scroll animations)</div>
+        </div>
+      </div>
+      <div class="est-group">
+        <div class="est-label">Extra Features</div>
+        <div class="est-opts" data-group="extras">
+          <div class="est-opt selected" data-price="0" data-time="0">None</div>
+          <div class="est-opt" data-price="5000" data-time="1">Blog / CMS</div>
+          <div class="est-opt" data-price="8000" data-time="1">Payment Gateway</div>
+          <div class="est-opt" data-price="4000" data-time="0">WhatsApp / Chat Widget</div>
+          <div class="est-opt" data-price="6000" data-time="1">Multilingual (2 languages)</div>
+        </div>
+      </div>
+    </div>
+    <div class="estimate-result reveal">
+      <div class="est-result-label">Estimated Investment</div>
+      <div class="est-price-range" id="est-price">₹12,000</div>
+      <div class="est-timeline">Estimated timeline: <strong id="est-time">~1 week</strong></div>
+      <ul class="est-includes" id="est-includes">
+        <li>Responsive across all devices</li>
+        <li>SEO basics included</li>
+        <li>Source code — fully yours</li>
+        <li>Post-launch support window</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary" style="justify-content:center;display:flex;width:100%">Get Exact Quote →</a>
+      <p class="est-disclaimer" style="margin-top:16px">This is a rough estimate. Message me for a detailed, no-obligation quote within 24 hours. Prices in INR.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-head reveal">
+    <div class="eyebrow">FAQ</div>
+    <h2>Questions clients <span class="gold">always ask</span></h2>
+    <p>Everything you need to know before reaching out — answered honestly.</p>
+  </div>
+  <div class="faq-wrap reveal">
+    <div class="faq-item">
+      <button class="faq-q">How long does a project typically take?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Most projects take between 1–6 weeks depending on scope. A simple 3-page portfolio takes about a week. A full e-commerce store with custom animations can take 4–6 weeks. I give you a realistic timeline upfront — not a rushed one — so you know exactly when to expect delivery.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I need to provide content (text, images)?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Ideally yes — you know your business best. But if you need help, I can write basic copy and source royalty-free placeholder images. For brand photography or professional copywriting, I can recommend trusted collaborators.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will my website work on mobile and all screen sizes?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Absolutely — every website I build is fully responsive by default. I test across phones, tablets, and all major browsers before delivery. Responsive design is never an add-on; it's always included.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I own the website code after the project?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Yes, 100%. Once final payment is made, all code, assets, and design files belong to you. There are no recurring platform fees or lock-ins unless you specifically choose a CMS or hosting that has subscription costs (which I'll explain clearly in advance).</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What if I need changes after the site is live?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>All packages include a post-launch support window for bug fixes and minor tweaks. For ongoing content updates or new features, I offer affordable monthly retainer plans starting at ₹3,000/month. You'll never be left stranded after launch.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you redesign my existing website?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Yes! Redesigns are actually one of my favourite projects. I'll audit your current site, identify what's working and what isn't, then rebuild it from the ground up — keeping your content but transforming the look, speed, and experience.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do payments work?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>I typically work on a 50% upfront, 50% on delivery basis. For larger projects I can split into 3 milestones. Payments are accepted via UPI, bank transfer, or Razorpay. Everything is documented and transparent — no surprises.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I see work-in-progress before the final delivery?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Of course. I share a live preview link during development so you can follow along in real time. Feedback is welcome at every stage — I'd rather fix something small mid-build than do a full revision after launch.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- START A PROJECT CTA -->
+<section>
+  <div class="cta-block reveal">
+    <div class="avail-tag"><span class="avail-dot"></span> Currently taking new projects</div>
+    <h2>Ready to build something <span class="gold">great?</span></h2>
+    <p>Whether you have a detailed brief or just a rough idea — let's talk. I'll help you figure out exactly what you need and give you a clear, honest quote within 24 hours.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn btn-primary">Start a Project →</a>
+      <a href="https://wa.me/919446138004" class="btn btn-ghost">💬 WhatsApp Me</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-head reveal">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's build something <span class="gold">unforgettable</span></h2>
+  </div>
+  <div class="contact-wrap">
+    <div class="info reveal">
+      <h3>Get in touch</h3>
+      <p>Have a project in mind, or just want to say hi? My inbox is open.</p>
+      <div class="row"><span>✉</span> hello@aabelvinod.dev</div>
+      <div class="row"><span>☎</span> +91 98765 43210</div>
+      <div class="row"><span>◎</span> Irinjalakuda, Thrissur, Kerala</div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="GitHub">GH</a>
+        <a href="#" aria-label="LinkedIn">IN</a>
+        <a href="#" aria-label="Twitter">X</a>
+        <a href="#" aria-label="Dribbble">DR</a>
+      </div>
+    </div>
+    <form class="reveal" onsubmit="event.preventDefault();this.querySelector('button').textContent='Sent ✓';">
+      <div class="field"><input type="text" id="n" placeholder=" " required /><label for="n">Your Name</label></div>
+      <div class="field"><input type="email" id="e" placeholder=" " required /><label for="e">Email Address</label></div>
+      <div class="field"><input type="text" id="s" placeholder=" " /><label for="s">Subject</label></div>
+      <div class="field"><textarea id="m" placeholder=" " required></textarea><label for="m">Your Message</label></div>
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- Hire Me -->
+<a href="#contact" class="hire" id="hire">⚡ Hire Me</a>
+
+<!-- Footer -->
+<footer>
+  <div class="foot">
+    <div>© <span id="yr"></span> Aabel Vinod · All rights reserved.</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="made">Made with <span>⚡</span> by Aabel</div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Custom Cursor ---------- */
+(function(){
+  const c=document.getElementById('cursor'),d=document.getElementById('cursor-dot');
+  if(!c) return;
+  let x=0,y=0,tx=0,ty=0;
+  window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;d.style.transform=`translate(${tx}px,${ty}px) translate(-50%,-50%)`});
+  function loop(){x+=(tx-x)*.18;y+=(ty-y)*.18;c.style.transform=`translate(${x}px,${y}px) translate(-50%,-50%)`;requestAnimationFrame(loop)}
+  loop();
+  document.querySelectorAll('a,button,.card,.project,.tag,.stat,input,textarea').forEach(el=>{
+    el.addEventListener('mouseenter',()=>c.classList.add('hover'));
+    el.addEventListener('mouseleave',()=>c.classList.remove('hover'));
+  });
+})();
+
+/* ---------- Particles ---------- */
+(function(){
+  const cv=document.getElementById('particles');if(!cv)return;
+  const ctx=cv.getContext('2d');let w,h,parts=[];
+  function size(){w=cv.width=innerWidth*devicePixelRatio;h=cv.height=innerHeight*devicePixelRatio;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px'}
+  size();addEventListener('resize',size);
+  const COUNT=Math.min(70,Math.floor(innerWidth/22));
+  for(let i=0;i<COUNT;i++)parts.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.6+.4,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,o:Math.random()*.6+.2});
+  function tick(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of parts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*devicePixelRatio,0,Math.PI*2);
+      ctx.fillStyle=`rgba(212,175,55,${p.o})`;ctx.shadowColor='rgba(212,175,55,.6)';ctx.shadowBlur=8*devicePixelRatio;ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* ---------- Typing ---------- */
+(function(){
+  const el=document.getElementById('typed');if(!el)return;
+  const words=['Web Developer','UI/UX Designer','Visual Magic Creator'];
+  let wi=0,ci=0,del=false;
+  function type(){
+    const w=words[wi];
+    el.textContent=w.slice(0,ci);
+    if(!del){ci++;if(ci>w.length){del=true;setTimeout(type,1400);return}}
+    else{ci--;if(ci===0){del=false;wi=(wi+1)%words.length}}
+    setTimeout(type,del?45:90);
+  }type();
+})();
+
+/* ---------- Reveal on Scroll ---------- */
+(function(){
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.reveal,.reveal-scale,.skill').forEach(el=>io.observe(el));
+})();
+
+/* ---------- Counters ---------- */
+(function(){
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+    const el=e.target,end=+el.dataset.count,dur=1400,t0=performance.now();
+    function s(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.floor(p*end)+(p===1?'+':'');if(p<1)requestAnimationFrame(s)}
+    requestAnimationFrame(s);io.unobserve(el);
+  }})},{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>io.observe(el));
+})();
+
+/* ---------- Mouse Parallax (Hero) ---------- */
+(function(){
+  const hero=document.querySelector('.hero');if(!hero)return;
+  const orbs=hero.querySelectorAll('.parallax-orb');
+  hero.addEventListener('mousemove',e=>{
+    const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    orbs.forEach(o=>{const d=+o.dataset.depth*60;o.style.transform=`translate3d(${x*d}px,${y*d}px,0)`});
+  });
+})();
+
+/* ---------- Scroll Parallax (orbs) ---------- */
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  document.querySelectorAll('.parallax-orb').forEach(o=>{
+    o.style.translate=`0 ${y*0.3}px`;
+  });
+},{passive:true});
+
+/* ---------- Mobile Menu ---------- */
+(function(){
+  const b=document.getElementById('burger'),m=document.getElementById('mobile');
+  b.addEventListener('click',()=>{b.classList.toggle('open');m.classList.toggle('open')});
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{b.classList.remove('open');m.classList.remove('open')}));
+})();
+
+/* ---------- Ripple ---------- */
+document.querySelectorAll('.btn,.nav-cta,.hire').forEach(b=>{
+  b.addEventListener('click',function(e){
+    const r=this.getBoundingClientRect(),s=document.createElement('span');
+    const size=Math.max(r.width,r.height);
+    s.className='ripple';s.style.width=s.style.height=size+'px';
+    s.style.left=(e.clientX-r.left-size/2)+'px';s.style.top=(e.clientY-r.top-size/2)+'px';
+    this.appendChild(s);setTimeout(()=>s.remove(),700);
+  });
+});
+
+/* ---------- Testimonials Carousel ---------- */
+(function(){
+  const tr=document.getElementById('ttrack'),dotsEl=document.getElementById('tdots');
+  if(!tr)return;
+  const slides=tr.children.length;let i=0;
+  for(let k=0;k<slides;k++){const b=document.createElement('button');b.addEventListener('click',()=>go(k));dotsEl.appendChild(b)}
+  const dots=dotsEl.children;
+  function go(n){i=(n+slides)%slides;tr.style.transform=`translateX(-${i*100}%)`;Array.from(dots).forEach((d,j)=>d.classList.toggle('active',j===i))}
+  go(0);setInterval(()=>go(i+1),5500);
+})();
+
+/* ---------- Hire Me Visibility ---------- */
+(function(){
+  const h=document.getElementById('hire');
+  addEventListener('scroll',()=>{h.classList.toggle('show',scrollY>600)},{passive:true});
+})();
+
+/* ---------- Year ---------- */
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ---------- FAQ Accordion ---------- */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    const item=this.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>o.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+
+/* ---------- Project Estimate Calculator ---------- */
+(function(){
+  const priceEl=document.getElementById('est-price');
+  const timeEl=document.getElementById('est-time');
+  if(!priceEl)return;
+
+  // Only one selection per group (except extras = multi-select)
+  document.querySelectorAll('.est-opts').forEach(group=>{
+    const isExtras=group.dataset.group==='extras';
+    group.querySelectorAll('.est-opt').forEach(opt=>{
+      opt.addEventListener('click',function(){
+        if(!isExtras){
+          group.querySelectorAll('.est-opt').forEach(o=>o.classList.remove('selected'));
+          this.classList.add('selected');
+        } else {
+          if(this.dataset.price==='0'){
+            group.querySelectorAll('.est-opt').forEach(o=>o.classList.remove('selected'));
+            this.classList.add('selected');
+          } else {
+            group.querySelector('[data-price="0"]').classList.remove('selected');
+            this.classList.toggle('selected');
+            if(!group.querySelector('.selected'))group.querySelector('[data-price="0"]').classList.add('selected');
+          }
+        }
+        recalc();
+      });
+    });
+  });
+
+  function recalc(){
+    let total=0,weeks=0;
+    document.querySelectorAll('.est-opt.selected').forEach(o=>{
+      total+=parseInt(o.dataset.price||0);
+      weeks+=parseInt(o.dataset.time||0);
+    });
+    total=Math.max(total,12000);
+    weeks=Math.max(weeks,1);
+    const hi=Math.round(total*1.3/1000)*1000;
+    priceEl.textContent='₹'+total.toLocaleString('en-IN')+' – ₹'+hi.toLocaleString('en-IN');
+    timeEl.textContent='~'+weeks+(weeks===1?' week':' weeks');
+  }
+  recalc();
+})();
+</script>
+</body>
 </html>
