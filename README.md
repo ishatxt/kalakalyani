@@ -23,16 +23,6 @@ Live site: [https://ishatxt.github.io/kalakalyani/](https://ishatxt.github.io/ka
 
 Open `index.html` in any browser, or serve the directory locally:
 
-```bash
-python3 -m http.server
-```
-
-Then visit `http://localhost:8000`.
-
 ## Deployment
 
 The site is deployed with GitHub Pages from the `main` branch.
-
-## License
-
-All rights reserved.
